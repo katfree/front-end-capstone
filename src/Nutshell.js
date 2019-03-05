@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import IsAuth from "./components/Auth/IsAuth"
+import IsAuth from "./components/auth/IsAuth"
 
 
 class Nutshell extends Component {
