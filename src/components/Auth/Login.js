@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./login.css"
-import UserManager from "../../modules/UserManager";
+import UserManager from "../../modules/UserManager"
 
 export default class Login extends Component {
   // Set initial state
@@ -38,7 +38,6 @@ export default class Login extends Component {
     }
   }
 
-  // Simplistic handler for login submit
   handleLogin = e => {
     e.preventDefault()
     if (this.state.username && this.state.password) {
@@ -52,7 +51,7 @@ export default class Login extends Component {
           }
         }
       )
-    } else  {
+    } else {
       alert("Please Fill Out Form 😬!")
     }
   }

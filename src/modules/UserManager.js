@@ -27,7 +27,8 @@ export default {
     ).then(e => e.json())
   },
   searchUsername(username) {
-    return fetch(`${Settings.remoteURL}/users?username=${username}`)
-    .then(e => e.json())
+    return fetch(`${Settings.remoteURL}/users?username=${username}`).then(e =>
+      e.json()
+    )
   }
 }
