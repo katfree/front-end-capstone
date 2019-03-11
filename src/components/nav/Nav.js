@@ -9,18 +9,21 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
-        <ul className="nav nav-pills">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Nutshell
+      <nav className="navbar bg-dark navbar-dark fixed-top flex-md-nowrap p-0 shadow">
+        <ul className="nav ">
+          <li className="nav-item text-warning">
+            <Link className="nav-link " to="/messages">
+              Messages
             </Link>
           </li>
         </ul>
-        <a className="nav-link">Aloha 🌺 {this.props.activeUser.username}</a>
+        <a className="nav-link text-white">
+        App Name/logo
+        {/* Aloha 🌺 {this.props.activeUser.username} */}
+        </a>
         <button
           type="button"
-          className="btn btn-outline-info"
+          className="btn btn-outline-info "
           onClick={this.logout}>
           Logout
         </button>

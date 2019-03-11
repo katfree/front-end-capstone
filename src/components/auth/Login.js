@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./login.css"
 import UserManager from "../../modules/UserManager"
+import { Link } from "react-router-dom";
 
 export default class Login extends Component {
   // Set initial state
@@ -16,27 +17,6 @@ export default class Login extends Component {
     this.setState(stateToChange)
   }
 
-  handleRegister = e => {
-    e.preventDefault()
-    const newUser = {
-      username: this.state.username,
-      password: this.state.password
-    }
-    if (this.state.username && this.state.password) {
-      UserManager.searchUsername(this.state.username).then(users => {
-        if (users.length) {
-          alert(`Username ${this.state.username} already exits!`)
-        } else {
-          UserManager.addUser(newUser).then(user => {
-            sessionStorage.setItem("credentials", parseInt(user.id))
-            this.props.setAuth()
-          })
-        }
-      })
-    } else {
-      alert("Please Fill Out Form 😬!")
-    }
-  }
 
   handleLogin = e => {
     e.preventDefault()
@@ -58,6 +38,9 @@ export default class Login extends Component {
 
   render() {
     return (
+      <>
+        <h1 className="logoHeader">App Header</h1>
+
       <form className="loginForm">
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label htmlFor="inputUsername">Username</label>
@@ -80,10 +63,15 @@ export default class Login extends Component {
         <button type="submit" onClick={this.handleLogin}>
           Sign in
         </button>
-        <button type="submit" onClick={this.handleRegister}>
-          Register
-        </button>
+
       </form>
+
+      <Link className="toregistrationForm" to={`/register`}>Register</Link>
+
+
+      </>
+
+
     )
   }
 }
