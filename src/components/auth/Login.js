@@ -38,38 +38,47 @@ export default class Login extends Component {
 
   render() {
     return (
-      <>
-        <h1 className="logoHeader">App Header</h1>
-
+      <React.Fragment>
+      <h1 className="logoHeader">App Header</h1>
       <form className="loginForm">
+      <div className="loginFormContainer shadow">
+
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <div class="form-group shadow">
         <label htmlFor="inputUsername">Username</label>
         <input
           onChange={this.handleFieldChange}
           type="username"
+          class="form-control"
+          aria-describedby="emailHelp"
           id="username"
           placeholder={` Something Cool`}
           required=""
           autoFocus=""
         />
+        </div>
+        <div class="form-group shadow">
         <label htmlFor="inputPassword">Password</label>
         <input
           onChange={this.handleFieldChange}
           type="password"
+          class="form-control"
           id="password"
           placeholder={` Don't tell!`}
           required=""
         />
-        <button type="submit" onClick={this.handleLogin}>
+        </div>
+        <button type="submit" class="btn btn-primary" onClick={this.handleLogin}>
           Sign in
         </button>
 
-      </form>
-
       <Link className="toregistrationForm" to={`/register`}>Register</Link>
+      </div>
+      </form>
+      </React.Fragment>
 
 
-      </>
+
 
 
     )

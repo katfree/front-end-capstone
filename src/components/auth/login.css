@@ -3,9 +3,60 @@
 
 
 .loginForm {
-    /* padding: 0 25px; */
+    padding: 0 25px;
 }
 
 .logoHeader{
     /* font-family: 'Rock Salt', cursive; */
+    display: flex;
+    justify-content: center;
+}
+
+.RegistrationForm {
+
+    margin: 20px;
+   padding: 10px;
+   /* border: 1px brown solid; */
+   background-color:  rgba(128, 128, 128, 0.548);
+   border-radius: 10px;
+   /* box-shadow: 10px 10px; */
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   height: 500px;
+
+
+
+}
+
+.RegistrationFormChild{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+
+}
+
+.loginFormContainer{
+
+    width: 350px;
+    height: 400px;
+    display: flex;
+     justify-content: center;
+     flex-direction: column;
+    align-items: center;
+    /* box-shadow: 10px 10px; */
+
+
+}
+
+
+.loginForm{
+    display: flex;
+    /* flex-flow: column; */
+    justify-content: center;
+
 }

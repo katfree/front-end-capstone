@@ -7,6 +7,16 @@ class ApplicationViews extends Component {
     ticketListings: []
   }
 
+  AddNewTicketListing = listing => {
+    return TicketListingsManager.CreateNewTicketListing(listing)
+        .then(() => TicketListingsManager.getAll())
+        .then(listings =>
+            this.setState({
+                listings: listings
+            })
+        )
+}
+
 
 
 
@@ -32,6 +42,7 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <TicketListings {...this.props} {...props}
           ticketListings={this.state.ticketListings}
+          AddNewTicketListing={this.AddNewTicketListing}
           />
 
 

@@ -48,7 +48,8 @@ export default class Register extends Component {
 
     render() {
         return (
-            < >
+            <div className ="RegistrationForm">
+            <div className ="RegistrationForm">
                 <form >
                     <h1 className="h3 mb-3 font-weight-normal">Register Here</h1>
                     <label htmlFor="inputUsername">Username</label>
@@ -104,7 +105,9 @@ export default class Register extends Component {
                 </form >
 
 
-            </>
+                </div>
+
+                </div>
 
 
 
