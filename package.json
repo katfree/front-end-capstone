@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "moment": "^2.24.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-responsive-modal": "^3.6.0",

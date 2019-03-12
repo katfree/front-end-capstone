@@ -23,9 +23,11 @@ export default class CreateNewTicketListing extends Component {
       const { open } = this.state;
       return (
         <React.Fragment>
-          <button onClick={this.onOpenModal}>Open modal</button>
+
+
+          <button onClick={this.onOpenModal}>Sell Your Tickets</button>
           <Modal open={open} onClose={this.onCloseModal} center>
-            <NewListingForm {...this.props}  AddNewTicketListing={this.AddNewTicketListing}/>
+            <NewListingForm {...this.props}  CloseModal={this.onCloseModal} AddNewTicketListing={this.props.AddNewTicketListing}  />
           </Modal>
           </React.Fragment>
       );

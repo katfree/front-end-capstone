@@ -21,5 +21,9 @@ export default {
         });
         return await e.json();
     },
+    async getAllGames() {
+        const e = await fetch("https://statsapi.web.nhl.com/api/v1/schedule?teamId=18&startDate=2019-03-12&endDate=2019-06-01");
+        return await e.json();
+      }
 
 }

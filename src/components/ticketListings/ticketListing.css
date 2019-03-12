@@ -1,5 +1,22 @@
 /* width: 18rem */
 
 .ticketListingContainer{
-    width: 25rem;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+
+
+
+}
+
+.ticketListingCard{
+    border: 1px solid black;
+   width: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
 }

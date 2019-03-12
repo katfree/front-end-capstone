@@ -2,9 +2,13 @@ import React, { Component } from "react"
 import { Route } from "react-router-dom"
 import TicketListings from "./ticketListings/ticketListing";
 import TicketListingsManager from "../modules/TicketListingsManager";
+import HockeyapiManager from "../modules/HockeyapiManager";
+
 class ApplicationViews extends Component {
   state = {
-    ticketListings: []
+    ticketListings: [],
+    gameSchedule: [],
+    teams: []
   }
 
   AddNewTicketListing = listing => {
@@ -12,11 +16,15 @@ class ApplicationViews extends Component {
         .then(() => TicketListingsManager.getAll())
         .then(listings =>
             this.setState({
-                listings: listings
+              ticketListings: listings
             })
         )
 }
 
+// ShowGameSchedule = () => {
+//   return HockeyapiManager.getAll()
+//   .then( gameSchedule => this.setState({gameSchedule: gameSchedule}))
+// }
 
 
 
@@ -26,6 +34,12 @@ class ApplicationViews extends Component {
 
     TicketListingsManager.getAll()
       .then(ticketListings => newState.ticketListings = ticketListings)
+
+      HockeyapiManager.getAllGames()
+  .then( gameSchedule => newState.gameSchedule = gameSchedule)
+
+  HockeyapiManager.getAllTeams()
+  .then(teams => newState.teams = teams)
 
       .then(() => this.setState(newState))
 
@@ -43,6 +57,10 @@ class ApplicationViews extends Component {
           return <TicketListings {...this.props} {...props}
           ticketListings={this.state.ticketListings}
           AddNewTicketListing={this.AddNewTicketListing}
+          ShowGameSchedule={this.ShowGameSchedule}
+          gameSchedule={this.state.gameSchedule}
+          teams={this.state.teams}
+
           />
 
 

@@ -5,39 +5,47 @@ import CreateNewTicketListing from "./CreateNewTicketListing";
 
 
 
+
 export default class TicketListings extends Component {
 
 
 
     render() {
-    return (
-        <React.Fragment>
-            <CreateNewTicketListing {...this.props}  AddNewTicketListing={this.AddNewTicketListing}/>
+        const array = this.props.gameSchedule.dates || []
+        console.log(this.props.teams.teams)
+        return (
+            <React.Fragment>
+                <div>
+                    {console.log(array)}
+                </div>
+                <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
+
+                <div className="ticketListingContainer  " >
 
 
-        <div  className="ticketListingContainer card shadow" >
-
-             {
-                 this.props.ticketListings.map( listing =>
-                    <section key ={listing.id} className="ticketListingCard card-body">
-                    <h3 className ="card-title">{listing.listingHeader}</h3>
-                    <p className="list-group-item">Opponent: {listing.opponent}</p>
-                    <p className="list-group-item">Date of Game:{" "} {listing.dateOfGame}</p>
-                    <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
-                    <p className="card-text"> Description: {listing.description}</p>
+                    {
+                        this.props.ticketListings.map(listing =>
+                            <section key={listing.id} className="ticketListingCard card-body shadow">
+                                <h3 className="card-title">{listing.listingHeader}</h3>
+                                <p className="list-group-item">Opponent: {listing.opponent}</p>
+                                <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
+                                <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
+                                <p className="card-text"> Description: {listing.description}</p>
 
 
-                    </section>
+                            </section>
 
 
-                 )
-             }
+                        )
+                    }
 
 
-        </div>
+                </div>
 
-        </React.Fragment>
-    )
+
+
+            </React.Fragment>
+        )
 
     }
 

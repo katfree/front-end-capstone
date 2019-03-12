@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./ticketListing.css"
+import moment from "moment"
 
 
 export default class NewListingForm extends Component {
@@ -8,7 +9,6 @@ export default class NewListingForm extends Component {
     state = {
         userId: "",
         listingHeader: "",
-        level: "",
         section: "",
         price: "",
         description: "",
@@ -16,17 +16,6 @@ export default class NewListingForm extends Component {
         opponent: ""
     }
 
-    // {
-    //     "id": 1,
-    //     "userId": 1,
-    //     "listingHeader": "2 tickets to Pens game on 3/21",
-    //     "level": "Lower Bowl",
-    //     "section": "112",
-    //     "price": "1000",
-    //     "description": "Two tickets in section 112 Row B seats 1&2. Aisle seats.",
-    //     "dateOfGame": "03-21-2019",
-    //     "opponent": "Pittsburgh Penguins"
-    //   }
 
     handleFieldChange = evt => {
         const stateToChange = {}
@@ -35,32 +24,46 @@ export default class NewListingForm extends Component {
     }
 
     createNewListing = evt => {
-        evt.PreventDefault()
+        evt.preventDefault()
 
         const listing = {
             userId: parseInt(sessionStorage.getItem("credentials")),
             listingHeader: this.state.listingHeader,
-            level: this.state.level,
             section: this.state.section,
             price: this.state.price,
             description: this.state.description,
-            dateOfGame: this.state.dateofGame,
+            dateofGame: this.state.dateofGame,
             opponent: this.state.opponent
 
         }
 
         this.props.AddNewTicketListing(listing)
+        .then(() => this.props.CloseModal())
 
 
 
     }
 
+
     render() {
+        let Datesarray = this.props.gameSchedule.dates || []
+
+        let optionItems = Datesarray.filter(obj => obj.date >= moment().format("YYYY-MM-DD")).flatMap(date =>
+            <option value ={date.date} key={date.date} >{date.date}</option>
+        )
+
+
+        let Teamsarray = this.props.teams.teams || []
+        let TeamOptionItems = Teamsarray.filter(obj => obj.name !== "Nashville Predators").flatMap(team =>
+
+            <option value = {team.name} key={team.name}>{team.name}</option>
+        )
+
         return (
 
             <form>
                 <div className="input-group">
-                    <label class="input-group-addon"
+                    <label className="input-group-addon"
                         id="basic-addon1"
                         htmlFor="listingHeader">
                         Listing Header
@@ -74,66 +77,200 @@ export default class NewListingForm extends Component {
                         id="listingHeader">
                     </input>
                 </div>
-                {/* <div className="form-group">
 
-                    <label htmlFor="level">Select A Level</label>
-                    <select
-                        defaultValue=""
-                        name="level"
-                        id="levelId"
-                        onChange={this.handleFieldChange}
-                    >
-                        <option value="Upper">Upper Bowl</option>
-                        <option value="Club">Club Level</option>
-                        <option value="Lower">Lower Bowl</option>
-                    </select>
-                </div> */}
-                <div className="form-group">
+                <div>
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="dateofGame">
+                        Date of Game
+                     </label>
 
-                    <label htmlFor="section">Upper Bowl</label>
                     <select
-                        defaultValue=""
-                        name="section"
-                        id="sectionId"
-                        onChange={this.handleFieldChange}
-                    >   
-                        <option value="301">301</option>
-                        <option value="302">302</option>
-                        <option value="303">303</option>
-                        <option value="304">304</option>
-                        <option value="305">305</option>
-                        <option value="306">306</option>
-                        <option value="307">307</option>
-                        <option value="308">308</option>
-                        <option value="309">309</option>
-                        <option value="310">310</option>
-                        <option value="311">311</option>
-                        <option value="312">312</option>
-                        <option value="313">313</option>
-                        <option value="314">314</option>
-                        <option value="315">315</option>
-                        <option value="316">316</option>
-                        <option value="317">317</option>
-                        <option value="318">318</option>
-                        <option value="319">319</option>
-                        <option value="320">320</option>
-                        <option value="321">321</option>
-                        <option value="322">322</option>
-                        <option value="323">323</option>
-                        <option value="324">324</option>
-                        <option value="325">325</option>
-                        <option value="326">326</option>
-                        <option value="327">327</option>
-                        <option value="328">328</option>
-                        <option value="329">329</option>
-                        <option value="330">330</option>
-                        <option value="331">331</option>
-                        <option value="332">332</option>
-                        <option value="333">333</option>
+                        name="dateofGame"
+                        id="dateofGame"
+                        onChange={this.handleFieldChange}>
+
+                        <option value="">Select Date</option>
+                        {optionItems}
                     </select>
+
+
                 </div>
 
 
+                <section>
+                    <h3>Select A Section</h3>
+                    <div className="form-group">
+
+                        <label htmlFor="section">Upper Bowl</label>
+                        <select
+
+                            name="section"
+                            id="section"
+                            onChange={this.handleFieldChange}
+                        >   <option>Upper</option>
+                            <option value="301">301</option>
+                            <option value="302">302</option>
+                            <option value="303">303</option>
+                            <option value="304">304</option>
+                            <option value="305">305</option>
+                            <option value="306">306</option>
+                            <option value="307">307</option>
+                            <option value="308">308</option>
+                            <option value="309">309</option>
+                            <option value="310">310</option>
+                            <option value="311">311</option>
+                            <option value="312">312</option>
+                            <option value="313">313</option>
+                            <option value="314">314</option>
+                            <option value="315">315</option>
+                            <option value="316">316</option>
+                            <option value="317">317</option>
+                            <option value="318">318</option>
+                            <option value="319">319</option>
+                            <option value="320">320</option>
+                            <option value="321">321</option>
+                            <option value="322">322</option>
+                            <option value="323">323</option>
+                            <option value="324">324</option>
+                            <option value="325">325</option>
+                            <option value="326">326</option>
+                            <option value="327">327</option>
+                            <option value="328">328</option>
+                            <option value="329">329</option>
+                            <option value="330">330</option>
+                            <option value="331">331</option>
+                            <option value="332">332</option>
+                            <option value="333">333</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+
+                        <label htmlFor="section">Club Level</label>
+                        <select
+
+                            name="section"
+                            id="section"
+                            onChange={this.handleFieldChange}
+                        >   <option >Club</option>
+                            <option value="201">201</option>
+                            <option value="202">202</option>
+                            <option value="203">203</option>
+                            <option value="204">204</option>
+                            <option value="205">205</option>
+                            <option value="206">206</option>
+                            <option value="207">207</option>
+                            <option value="208">208</option>
+                            <option value="209">209</option>
+                            <option value="210">210</option>
+                            <option value="211">211</option>
+                            <option value="212">212</option>
+                            <option value="213">213</option>
+                            <option value="214">214</option>
+                            <option value="215">215</option>
+                            <option value="216">216</option>
+                            <option value="217">217</option>
+                            <option value="218">218</option>
+                            <option value="219">219</option>
+                            <option value="220">220</option>
+                            <option value="221">221</option>
+                            <option value="222">222</option>
+                            <option value="223">223</option>
+                            <option value="224">224</option>
+
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+
+                        <label htmlFor="section">Lower Bowl</label>
+                        <select
+                            
+                            name="section"
+                            id="section"
+                            onChange={this.handleFieldChange}
+                        >
+                            <option >Lower</option>
+                            <option value="101">101</option>
+                            <option value="102">102</option>
+                            <option value="103">103</option>
+                            <option value="104">104</option>
+                            <option value="105">105</option>
+                            <option value="106">106</option>
+                            <option value="107">107</option>
+                            <option value="108">108</option>
+                            <option value="109">109</option>
+                            <option value="110">110</option>
+                            <option value="111">111</option>
+                            <option value="112">112</option>
+                            <option value="113">113</option>
+                            <option value="114">114</option>
+                            <option value="115">115</option>
+                            <option value="116">116</option>
+                            <option value="117">117</option>
+                            <option value="118">118</option>
+                            <option value="119">119</option>
+                            <option value="120">120</option>
+                        </select>
+                    </div>
+                </section>
+
+                <div className="input-group">
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="price">
+                        $
+                     </label>
+                    <input type="text"
+                        placeholder="price"
+                        aria-describedby="basic-addon1"
+                        required
+                        className="form-control"
+                        onChange={this.handleFieldChange}
+                        id="price">
+                    </input>
+                </div>
+
+                <div className="input-group">
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="description">
+                        Description
+                     </label>
+                    <input type="text"
+                        placeholder="description"
+                        aria-describedby="basic-addon1"
+                        required
+                        className="form-control"
+                        onChange={this.handleFieldChange}
+                        id="description">
+                    </input>
+                </div>
+
+
+
+
+                <div>
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="opponent">
+                        Opponent
+                     </label>
+
+                    <select 
+                        name="opponent"
+                        id="opponent"
+                        onChange={this.handleFieldChange}>
+                        <option value="">Select Opponent</option>
+                        {TeamOptionItems}
+                    </select>
+
+                </div>
+
+
+                <button type="submit"
+                    onClick={this.createNewListing}> Create Listing</button>
 
             </form>
 
@@ -143,3 +280,17 @@ export default class NewListingForm extends Component {
         )
     }
 }
+{/* <div className="form-group">
+
+    <label htmlFor="level">Select A Level</label>
+    <select
+        
+        name="level"
+        id="levelId"
+        onChange={this.handleFieldChange}
+    >
+        <option value="Upper">Upper Bowl</option>
+        <option value="Club">Club Level</option>
+        <option value="Lower">Lower Bowl</option>
+    </select>
+</div> */}
