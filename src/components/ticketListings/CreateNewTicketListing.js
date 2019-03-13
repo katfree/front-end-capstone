@@ -14,11 +14,11 @@ export default class CreateNewTicketListing extends Component {
     onOpenModal = () => {
       this.setState({ open: true });
     };
-   
+
     onCloseModal = () => {
       this.setState({ open: false });
     };
-   
+
     render() {
       const { open } = this.state;
       return (
@@ -28,6 +28,7 @@ export default class CreateNewTicketListing extends Component {
           <button onClick={this.onOpenModal}>Sell Your Tickets</button>
           <Modal open={open} onClose={this.onCloseModal} center>
             <NewListingForm {...this.props}  CloseModal={this.onCloseModal} AddNewTicketListing={this.props.AddNewTicketListing}  />
+
           </Modal>
           </React.Fragment>
       );

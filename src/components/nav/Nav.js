@@ -16,6 +16,16 @@ class Nav extends Component {
               Messages
             </Link>
           </li>
+          <li className="nav-item text-warning">
+            <Link className="nav-link " to="/profile">
+              Profile
+            </Link>
+          </li>
+          <li className="nav-item text-warning">
+            <Link className="nav-link " to="/">
+              Ticket Listings
+            </Link>
+          </li>
         </ul>
         <a className="nav-link text-white">
         App Name/logo

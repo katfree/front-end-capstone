@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
-import TicketListings from "./ticketListings/ticketListing";
 import TicketListingsManager from "../modules/TicketListingsManager";
 import HockeyapiManager from "../modules/HockeyapiManager";
+import Profile from "./profiles/profile";
+import TicketListingsPage from "./ticketListings/ticketListing";
 
 class ApplicationViews extends Component {
   state = {
@@ -21,10 +22,12 @@ class ApplicationViews extends Component {
         )
 }
 
-// ShowGameSchedule = () => {
-//   return HockeyapiManager.getAll()
-//   .then( gameSchedule => this.setState({gameSchedule: gameSchedule}))
-// }
+EditListing = (editedListingObject, id) => {
+  return TicketListingsManager.EditListing(editedListingObject, id)
+  .then(() => TicketListingsManager.getAll())
+  .then(listings => this.setState({ ticketListings: listings })
+  )
+}
 
 
 
@@ -54,10 +57,9 @@ class ApplicationViews extends Component {
       <React.Fragment>
 
         <Route exact path="/" render={(props) => {
-          return <TicketListings {...this.props} {...props}
+          return <TicketListingsPage {...this.props} {...props}
           ticketListings={this.state.ticketListings}
           AddNewTicketListing={this.AddNewTicketListing}
-          ShowGameSchedule={this.ShowGameSchedule}
           gameSchedule={this.state.gameSchedule}
           teams={this.state.teams}
 
@@ -66,6 +68,29 @@ class ApplicationViews extends Component {
 
 
         }} />
+
+        <Route exact path="/profile" render={(props) => {
+              return <Profile {...this.props} {...props}
+              ticketListings={this.state.ticketListings}
+              EditListing={this.EditListing}
+              gameSchedule={this.state.gameSchedule}
+              teams={this.state.teams}
+
+
+              />
+
+
+
+
+        }} />
+
+<Route exact path="/messages" render={(props) => {
+
+
+
+
+
+}} />
 
 
 

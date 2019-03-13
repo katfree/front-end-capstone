@@ -1,10 +1,21 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./ticketListing.css"
+
 import moment from "moment"
+import TicketListingsManager from "../../modules/TicketListingsManager";
+import Modal from 'react-responsive-modal';
 
 
-export default class NewListingForm extends Component {
+export default class EditListing extends Component {
+
+
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
+
 
     state = {
         userId: "",
@@ -13,9 +24,9 @@ export default class NewListingForm extends Component {
         price: "",
         description: "",
         dateofGame: "",
-        opponent: ""
+        opponent: "",
+        open: false
     }
-
 
     handleFieldChange = evt => {
         const stateToChange = {}
@@ -23,10 +34,10 @@ export default class NewListingForm extends Component {
         this.setState(stateToChange)
     }
 
-    createNewListing = evt => {
+    updateListing = evt => {
         evt.preventDefault()
-
-        const listing = {
+        const editedListing = {
+            id: this.props.listing.id,
             userId: parseInt(sessionStorage.getItem("credentials")),
             listingHeader: this.state.listingHeader,
             section: this.state.section,
@@ -35,32 +46,57 @@ export default class NewListingForm extends Component {
             dateofGame: this.state.dateofGame,
             opponent: this.state.opponent
 
+
+
+
         }
 
-        this.props.AddNewTicketListing(listing)
-        .then(() => this.props.CloseModal())
-
+        this.props.EditListing(editedListing, this.props.listing.id)
+        .then(() => this.onCloseModal())
 
 
     }
 
 
+
+
+    componentDidMount() {
+        TicketListingsManager.get(this.props.listing.id)
+            .then(listing => {
+                this.setState(listing);
+            })
+    }
+
+
+
+
+
     render() {
+        console.log(this.props.listing.id)
+        console.log(this.state.section)
+
         let Datesarray = this.props.gameSchedule.dates || []
 
+
         let optionItems = Datesarray.filter(obj => obj.date >= moment().format("YYYY-MM-DD")).flatMap(date =>
-            <option value ={date.date} key={date.date} >{date.date}</option>
+            <option value={date.date} key={date.date} >{date.date}</option>
         )
+
 
 
         let Teamsarray = this.props.teams.teams || []
         let TeamOptionItems = Teamsarray.filter(obj => obj.name !== "Nashville Predators").flatMap(team =>
 
-            <option value = {team.name} key={team.name}>{team.name}</option>
+            <option value={this.state.opponent} key={team.name}>{team.name}</option>
         )
 
-        return (
 
+        const { open } = this.state;
+        return (
+            <React.Fragment>
+
+<button onClick={this.onOpenModal}>Edit</button>
+<Modal open={open} onClose={this.onCloseModal} center>
             <form>
                 <div className="input-group">
                     <label className="input-group-addon"
@@ -69,12 +105,13 @@ export default class NewListingForm extends Component {
                         Listing Header
                      </label>
                     <input type="text"
-                        placeholder="listingHeader"
                         aria-describedby="basic-addon1"
                         required
                         className="form-control"
                         onChange={this.handleFieldChange}
-                        id="listingHeader">
+                        id="listingHeader"
+                        value={this.state.listingHeader}>
+
                     </input>
                 </div>
 
@@ -88,9 +125,11 @@ export default class NewListingForm extends Component {
                     <select
                         name="dateofGame"
                         id="dateofGame"
-                        onChange={this.handleFieldChange}>
+                        onChange={this.handleFieldChange}
+                        value={this.state.dateofGame}
+                        >
 
-                        <option value="">Select Date</option>
+                        <option value={this.state.dateofGame}>{this.state.dateofGame}</option>
                         {optionItems}
                     </select>
 
@@ -191,7 +230,7 @@ export default class NewListingForm extends Component {
                             id="section"
                             onChange={this.handleFieldChange}
                         >
-                            <option >Lower</option>
+                            <option >{this.state.section > 121 ? "Lower": this.state.section}</option>
                             <option value="101">101</option>
                             <option value="102">102</option>
                             <option value="103">103</option>
@@ -223,12 +262,12 @@ export default class NewListingForm extends Component {
                         $
                      </label>
                     <input type="text"
-                        placeholder="price"
                         aria-describedby="basic-addon1"
                         required
                         className="form-control"
                         onChange={this.handleFieldChange}
-                        id="price">
+                        id="price"
+                        value ={this.state.price}>
                     </input>
                 </div>
 
@@ -239,12 +278,12 @@ export default class NewListingForm extends Component {
                         Description
                      </label>
                     <input type="text"
-                        placeholder="description"
                         aria-describedby="basic-addon1"
                         required
                         className="form-control"
                         onChange={this.handleFieldChange}
-                        id="description">
+                        id="description"
+                        value={this.state.description}>
                     </input>
                 </div>
 
@@ -258,11 +297,12 @@ export default class NewListingForm extends Component {
                         Opponent
                      </label>
 
-                    <select 
+                    <select
                         name="opponent"
                         id="opponent"
-                        onChange={this.handleFieldChange}>
-                        <option value="">Select Opponent</option>
+                        onChange={this.handleFieldChange}
+                        value={this.state.opponent}>
+                        <option value={this.state.opponent}>{this.state.opponent}</option>
                         {TeamOptionItems}
                     </select>
 
@@ -270,13 +310,22 @@ export default class NewListingForm extends Component {
 
 
                 <button type="submit"
-                    onClick={this.createNewListing}> Create Listing</button>
+                    onClick={this.updateListing}> Create Listing</button>
 
             </form>
+            </Modal>
 
-
+            </React.Fragment>
 
 
         )
     }
 }
+
+
+
+
+
+
+
+

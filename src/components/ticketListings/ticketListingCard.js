@@ -1,24 +1,14 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./ticketListing.css"
-import CreateNewTicketListing from "./CreateNewTicketListing";
-import TicketCard from "./ticketListingCard";
 
 
 
-
-export default class TicketListingsPage extends Component {
-
-
+export default class TicketCard extends Component {
 
     render() {
-
         return (
-            <React.Fragment>
-                <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-                <TicketCard {...this.props} ticketListings={this.props.ticketListings}/>
-
-                {/* <div className="ticketListingContainer  " >
+            <div className="ticketListingContainer  " >
 
 
                     {
@@ -38,13 +28,7 @@ export default class TicketListingsPage extends Component {
                     }
 
 
-                </div> */}
-
-
-
-            </React.Fragment>
+                </div>
         )
-
     }
-
 }
