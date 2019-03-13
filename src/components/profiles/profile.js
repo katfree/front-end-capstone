@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import EditListing from "./EditListing";
+import CreateNewTicketListing from "../ticketListings/CreateNewTicketListing";
+
 
 
 
@@ -10,11 +12,14 @@ export default class Profile extends Component {
 
 
     render() {
-       
+
         const activeUserId = parseInt(sessionStorage.getItem("credentials"))
         return (
             <React.Fragment>
                 <section>
+                <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
+
+
                     <h1>My Tickets Listed/Sold</h1>
                     <div className="ticketListingContainer  " >
 
@@ -34,7 +39,7 @@ export default class Profile extends Component {
 
 
 
-                                    <button>Delete</button>
+                                    <button onClick={() => this.props.DeleteListing(listing.id)}>Delete</button>
 
                                 </section>
 

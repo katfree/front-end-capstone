@@ -12,6 +12,16 @@ class ApplicationViews extends Component {
     teams: []
   }
 
+  DeleteListing = id => {
+    return TicketListingsManager.deleteTicketListing(id)
+    .then(() => TicketListingsManager.getAll())
+    .then(listings =>
+      this.setState({
+        ticketListings: listings
+      })
+  )
+  }
+
   AddNewTicketListing = listing => {
     return TicketListingsManager.CreateNewTicketListing(listing)
         .then(() => TicketListingsManager.getAll())
@@ -75,6 +85,8 @@ EditListing = (editedListingObject, id) => {
               EditListing={this.EditListing}
               gameSchedule={this.state.gameSchedule}
               teams={this.state.teams}
+              DeleteListing={this.DeleteListing}
+              AddNewTicketListing={this.AddNewTicketListing}
 
 
               />

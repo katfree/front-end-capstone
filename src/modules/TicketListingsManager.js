@@ -2,7 +2,7 @@ import Settings from "./Settings"
 
 export default {
     async getAll() {
-        const e = await fetch(`${Settings.remoteURL}/ticketListings`);
+        const e = await fetch(`${Settings.remoteURL}/ticketListings?_expand=user&_expand=user`);
         return await e.json();
     },
     async CreateNewTicketListing(obj) {
@@ -15,7 +15,7 @@ export default {
         });
         return await data.json();
     },
-    async delete(id) {
+    async deleteTicketListing(id) {
         const e = await fetch(`${Settings.remoteURL}/ticketListings/${id}`, {
             method: "DELETE"
         });
