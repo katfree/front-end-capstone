@@ -13,7 +13,8 @@ export default class NewListingForm extends Component {
         price: "",
         description: "",
         dateofGame: "",
-        opponent: ""
+        opponent: "",
+        sold: ""
     }
 
 
@@ -33,7 +34,8 @@ export default class NewListingForm extends Component {
             price: this.state.price,
             description: this.state.description,
             dateofGame: this.state.dateofGame,
-            opponent: this.state.opponent
+            opponent: this.state.opponent,
+            sold: false
 
         }
 

@@ -24,20 +24,34 @@ export default {
     async getAllGames() {
         const e = await fetch("https://statsapi.web.nhl.com/api/v1/schedule?teamId=18&startDate=2019-03-12&endDate=2019-06-01");
         return await e.json();
-      },
-      async EditListing(editedListing, id) {
+    },
+    async EditListing(editedListing, id) {
         const e = await fetch(`${Settings.remoteURL}/ticketListings/${id}`, {
-              method: "PUT",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(editedListing)
-          });
-          return await e.json();
-      },
-      async get(id) {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedListing)
+        });
+        return await e.json();
+    },
+    async get(id) {
         const e = await fetch(`${Settings.remoteURL}/ticketListings/${id}`);
-          return await e.json();
-      },
+        return await e.json();
+    },
+
+    PatchCheckBox(obj, id) {
+        fetch(`${Settings.remoteURL}/ticketListings/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+
+
+
+        }).then(e => e.json)
+
+    }
 
 }

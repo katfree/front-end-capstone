@@ -19,7 +19,7 @@ export default class TicketCard extends Component {
                                 <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
                                 <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
                                 <p className="card-text"> Description: {listing.description}</p>
-                                <button>Message Seller: {listing.user.username} </button>
+                                <button >Message Seller: {listing.user.username} </button>
 
 
                             </section>

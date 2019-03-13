@@ -25,7 +25,8 @@ export default class EditListing extends Component {
         description: "",
         dateofGame: "",
         opponent: "",
-        open: false
+        open: false,
+        sold: ""
     }
 
     handleFieldChange = evt => {
@@ -44,7 +45,8 @@ export default class EditListing extends Component {
             price: this.state.price,
             description: this.state.description,
             dateofGame: this.state.dateofGame,
-            opponent: this.state.opponent
+            opponent: this.state.opponent,
+            sold: this.state.sold
 
 
 
@@ -305,6 +307,29 @@ export default class EditListing extends Component {
                         <option value={this.state.opponent}>{this.state.opponent}</option>
                         {TeamOptionItems}
                     </select>
+
+                </div>
+
+                <div>
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="sold">
+                        Sold?
+                     </label>
+
+                    <select
+                        name="sold"
+                        id="sold"
+                        onChange={this.handleFieldChange}
+                        value={this.state.sold}
+                        >
+
+                        <option>Have Your Tickets Been Sold?</option>
+                        <option value= {true} >Yes</option>
+                        <option value= {false} >No</option>
+
+                    </select>
+
 
                 </div>
 
