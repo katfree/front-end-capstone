@@ -149,7 +149,7 @@ export default class EditListing extends Component {
                             name="section"
                             id="section"
                             onChange={this.handleFieldChange}
-                        >   <option>Upper</option>
+                        >    <option >{this.state.section > 333 ? "Upper": this.state.section}</option>
                             <option value="301">301</option>
                             <option value="302">302</option>
                             <option value="303">303</option>
@@ -194,7 +194,7 @@ export default class EditListing extends Component {
                             name="section"
                             id="section"
                             onChange={this.handleFieldChange}
-                        >   <option >Club</option>
+                        >    <option >{this.state.section > 225 ? "Club": this.state.section}</option>
                             <option value="201">201</option>
                             <option value="202">202</option>
                             <option value="203">203</option>

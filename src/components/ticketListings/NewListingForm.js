@@ -14,7 +14,8 @@ export default class NewListingForm extends Component {
         description: "",
         dateofGame: "",
         opponent: "",
-        sold: ""
+        sold: "",
+        level: ""
     }
 
 
@@ -35,6 +36,7 @@ export default class NewListingForm extends Component {
             description: this.state.description,
             dateofGame: this.state.dateofGame,
             opponent: this.state.opponent,
+            level: this.state.level,
             sold: false
 
         }
@@ -94,6 +96,29 @@ export default class NewListingForm extends Component {
 
                         <option value="">Select Date</option>
                         {optionItems}
+                    </select>
+
+
+                </div>
+
+                <div>
+                    <label className="input-group-addon basic-addon1"
+                        id="basic-addon1"
+                        htmlFor="level">
+                        Level
+                     </label>
+
+                    <select
+                        name="level"
+                        id="level"
+                        onChange={this.handleFieldChange}>
+
+                        <option>Select Level</option>
+                        <option value="Upper">Upper Bowl</option>
+                        <option value="Club">Club Level</option>
+                        <option value="Lower">Lower Bowl</option>
+
+
                     </select>
 
 
