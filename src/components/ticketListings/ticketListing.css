@@ -5,8 +5,8 @@
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+    /* align-items: center; */
     padding-bottom: 50px;
 
 
@@ -16,7 +16,7 @@
 .ticketListingCard{
     border: 1px solid black;
    width: 300px;
-    display: flex;
+    /* display: flex;
     flex-flow: column;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
 }
