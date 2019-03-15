@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Link } from "react-router-dom";
 import "./ticketListing.css"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
@@ -38,7 +38,7 @@ export default class TicketListingsPage extends Component {
                             <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
                             <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
                             <p className="card-text"> Description: {listing.description}</p>
-                            <button >Message Seller: {listing.user.username} </button>
+                            <Link className="to Messages" to={`/messages`}>Message Seller: {listing.user.username} </Link>
 
 
                         </section>

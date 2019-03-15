@@ -4,12 +4,15 @@ import TicketListingsManager from "../modules/TicketListingsManager";
 import HockeyapiManager from "../modules/HockeyapiManager";
 import Profile from "./profiles/profile";
 import TicketListingsPage from "./ticketListings/ticketListing";
+import Messages from "./messages/messages";
+import MessageManager from "../modules/MessageManager";
 
 class ApplicationViews extends Component {
   state = {
     ticketListings: [],
     gameSchedule: [],
-    teams: []
+    teams: [],
+    messages: []
   }
 
   DeleteListing = id => {
@@ -39,9 +42,16 @@ EditListing = (editedListingObject, id) => {
   )
 }
 
+SendNewMessage = message => {
+  return MessageManager.CreateNewMessage(message)
+  .then(() => MessageManager.getAll())
+  .then(messages => this.setState({messages: messages}))
+}
+
 
 
   componentDidMount() {
+    console.log("componentdidMount")
 
     const newState = {}
 
@@ -53,6 +63,9 @@ EditListing = (editedListingObject, id) => {
 
   HockeyapiManager.getAllTeams()
   .then(teams => newState.teams = teams)
+
+  MessageManager.getAll()
+  .then(messages => newState.messages = messages)
 
       .then(() => this.setState(newState))
 
@@ -72,6 +85,7 @@ EditListing = (editedListingObject, id) => {
           AddNewTicketListing={this.AddNewTicketListing}
           gameSchedule={this.state.gameSchedule}
           teams={this.state.teams}
+          SendNewMessage={this.SendNewMessage}
 
           />
 
@@ -97,12 +111,17 @@ EditListing = (editedListingObject, id) => {
         }} />
 
 <Route exact path="/messages" render={(props) => {
+          return <Messages {...this.props} {...props}
+          messages={this.state.messages}
+
+
+          />
 
 
 
+        }} />
 
 
-}} />
 
 
 

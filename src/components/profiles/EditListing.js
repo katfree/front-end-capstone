@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { Button } from 'reactstrap';
 import moment from "moment"
 import TicketListingsManager from "../../modules/TicketListingsManager";
 import Modal from 'react-responsive-modal';
@@ -96,8 +96,8 @@ export default class EditListing extends Component {
         const { open } = this.state;
         return (
             <React.Fragment>
+ <Button color="info" onClick={this.onOpenModal}>Edit</Button>
 
-<button onClick={this.onOpenModal}>Edit</button>
 <Modal open={open} onClose={this.onCloseModal} center>
             <form>
                 <div className="input-group">
@@ -334,8 +334,9 @@ export default class EditListing extends Component {
                 </div>
 
 
-                <button type="submit"
-                    onClick={this.updateListing}> Create Listing</button>
+
+                     <Button color="warning" type="submit"
+                    onClick={this.updateListing} >Submit Edited Listing</Button>
 
             </form>
             </Modal>

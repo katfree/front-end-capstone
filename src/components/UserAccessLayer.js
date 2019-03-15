@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Nav from "./nav/Nav"
+import NavBarComponent from "./nav/Nav"
 import ApplicationViews from "./ApplicationViews"
 import UserManager from "../modules/UserManager"
 
@@ -18,7 +18,7 @@ export default class UserAccessLayer extends Component {
   render() {
     return (
       <React.Fragment>
-        <Nav setAuth={this.props.setAuth} activeUser={this.state.activeUser} />
+        <NavBarComponent setAuth={this.props.setAuth} activeUser={this.state.activeUser} />
         <ApplicationViews
           activeUserId={this.activeUserId}
           activeUser={this.state.activeUser}

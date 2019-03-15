@@ -1,5 +1,7 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 import "./ticketListing.css"
 import moment from "moment"
 
@@ -65,29 +67,29 @@ export default class NewListingForm extends Component {
 
         return (
 
-            <form>
-                <div className="input-group">
-                    <label className="input-group-addon"
+            <Form>
+                <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="listingHeader">
                         Listing Header
-                     </label>
-                    <input type="text"
-                        placeholder="listingHeader"
+                        </Label>
+                    <Input type="text"
+                        placeholder="Listing Header"
                         aria-describedby="basic-addon1"
                         required
-                        className="form-control"
+                        className="Form-control"
                         onChange={this.handleFieldChange}
                         id="listingHeader">
-                    </input>
-                </div>
+                    </Input>
+                    </FormGroup>
 
-                <div>
-                    <label className="input-group-addon basic-addon1"
+                <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="dateofGame">
                         Date of Game
-                     </label>
+                     </Label>
 
                     <select
                         name="dateofGame"
@@ -99,14 +101,14 @@ export default class NewListingForm extends Component {
                     </select>
 
 
-                </div>
+                    </FormGroup>
 
-                <div>
-                    <label className="input-group-addon basic-addon1"
+                    <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="level">
                         Level
-                     </label>
+                     </Label>
 
                     <select
                         name="level"
@@ -122,14 +124,14 @@ export default class NewListingForm extends Component {
                     </select>
 
 
-                </div>
+                    </FormGroup>
 
 
-                <section>
+                    <FormGroup>
                     <h3>Select A Section</h3>
-                    <div className="form-group">
 
-                        <label htmlFor="section">Upper Bowl</label>
+
+                        <Label htmlFor="section">Upper Bowl</Label>
                         <select
 
                             name="section"
@@ -170,11 +172,11 @@ export default class NewListingForm extends Component {
                             <option value="332">332</option>
                             <option value="333">333</option>
                         </select>
-                    </div>
+                        </FormGroup>
 
-                    <div className="form-group">
+                        <FormGroup>
 
-                        <label htmlFor="section">Club Level</label>
+                        <Label htmlFor="section">Club Level</Label>
                         <select
 
                             name="section"
@@ -207,11 +209,11 @@ export default class NewListingForm extends Component {
                             <option value="224">224</option>
 
                         </select>
-                    </div>
+                        </FormGroup>
 
-                    <div className="form-group">
+                        <FormGroup>
 
-                        <label htmlFor="section">Lower Bowl</label>
+                        <Label htmlFor="section">Lower Bowl</Label>
                         <select
 
                             name="section"
@@ -240,50 +242,50 @@ export default class NewListingForm extends Component {
                             <option value="119">119</option>
                             <option value="120">120</option>
                         </select>
-                    </div>
-                </section>
+                        </FormGroup>
 
-                <div className="input-group">
-                    <label className="input-group-addon basic-addon1"
+
+                <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="price">
                         $
-                     </label>
-                    <input type="text"
+                     </Label>
+                    <Input type="text"
                         placeholder="price"
                         aria-describedby="basic-addon1"
                         required
-                        className="form-control"
+                        className="Form-control"
                         onChange={this.handleFieldChange}
                         id="price">
-                    </input>
-                </div>
+                    </Input>
+                    </FormGroup>
 
-                <div className="input-group">
-                    <label className="input-group-addon basic-addon1"
+                <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="description">
                         Description
-                     </label>
-                    <input type="text"
+                     </Label>
+                    <Input type="text"
                         placeholder="description"
                         aria-describedby="basic-addon1"
                         required
-                        className="form-control"
+                        className="Form-control"
                         onChange={this.handleFieldChange}
                         id="description">
-                    </input>
-                </div>
+                    </Input>
+                    </FormGroup>
 
 
 
 
-                <div>
-                    <label className="input-group-addon basic-addon1"
+                    <FormGroup>
+                    <Label
                         id="basic-addon1"
                         htmlFor="opponent">
                         Opponent
-                     </label>
+                     </Label>
 
                     <select 
                         name="opponent"
@@ -293,13 +295,13 @@ export default class NewListingForm extends Component {
                         {TeamOptionItems}
                     </select>
 
-                </div>
+                    </FormGroup>
+
+                <Button color="success"  type="submit"
+                    onClick={this.createNewListing} > Create Listing</Button>
 
 
-                <button type="submit"
-                    onClick={this.createNewListing}> Create Listing</button>
-
-            </form>
+            </Form>
 
 
 

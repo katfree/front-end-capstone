@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Button } from 'reactstrap';
 import "./login.css"
 import UserManager from "../../modules/UserManager"
 import { Link } from "react-router-dom";
@@ -44,12 +45,12 @@ export default class Login extends Component {
       <div className="loginFormContainer shadow">
 
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <div class="form-group shadow">
+      <div className="form-group shadow">
         <label htmlFor="inputUsername">Username</label>
         <input
           onChange={this.handleFieldChange}
           type="username"
-          class="form-control"
+          className="form-control"
           aria-describedby="emailHelp"
           id="username"
           placeholder={` Something Cool`}
@@ -62,15 +63,15 @@ export default class Login extends Component {
         <input
           onChange={this.handleFieldChange}
           type="password"
-          class="form-control"
+          className="form-control"
           id="password"
           placeholder={` Don't tell!`}
           required=""
         />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={this.handleLogin}>
+        <Button color="success" type="submit" class="btn btn-primary" onClick={this.handleLogin}>
           Sign in
-        </button>
+        </Button>
 
       <Link className="toregistrationForm" to={`/register`}>Register</Link>
       </div>

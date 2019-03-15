@@ -1,5 +1,6 @@
 
 import React, { Component } from "react"
+import { Button } from 'reactstrap';
 import "./login.css"
 import UserManager from "../../modules/UserManager"
 
@@ -87,8 +88,8 @@ export default class Register extends Component {
                         required=""
                         />
 
-                <button type="submit"
-                onClick={this.handleRegister}> Register </button>
+                <Button color="success" type="submit"
+                onClick={this.handleRegister}> Register </Button>
 
 
 
