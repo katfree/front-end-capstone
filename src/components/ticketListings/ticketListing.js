@@ -11,11 +11,12 @@ import SortTicketListings from "./SortTicketListings";
 export default class TicketListingsPage extends Component {
     state = {
        toShow: false,
-        level: ""
+        level: "",
+        dateofGame: "",
     }
     handleFieldChange = evt => {
         console.log(evt.target.value)
-        this.setState({ level: evt.target.value })
+        this.setState({dateofGame: evt.target.value  })
     }
 
     toShowState = () =>  {
@@ -23,6 +24,9 @@ export default class TicketListingsPage extends Component {
         this.setState({toShow: !this.state.toShow})
     }
     render() {
+        console.log(this.state.dateofGame)
+
+        const activeUserId = parseInt(sessionStorage.getItem("credentials"))
 
 
         return (
@@ -31,7 +35,7 @@ export default class TicketListingsPage extends Component {
 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings}   />
                 {
 
-                this.state.toShow ? this.props.ticketListings.filter( listing => listing.level === this.state.level ).map(listing =>
+                this.state.toShow ? this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.userId !== activeUserId && listing.sold === false) || (listing.userId !== activeUserId && listing.sold === false && listing.level === this.state) ).map(listing =>
                         <section key={listing.id} className="ticketListingCard card-body shadow">
                             <h3 className="card-title">{listing.listingHeader}</h3>
                             <p className="list-group-item">Opponent: {listing.opponent}</p>

@@ -18,7 +18,7 @@ export default class TicketCard extends Component {
 
 
                     {
-                        this.props.ticketListings.filter(listing => listing.userId !== activeUserId).map(listing =>
+                        this.props.ticketListings.filter(listing => listing.userId !== activeUserId && listing.sold === false).map(listing =>
                             <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                 <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
