@@ -1,27 +1,33 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom";
-import "./ticketListing.css"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
 import SortTicketListings from "./SortTicketListings";
+import {Card, CardTitle, CardText,} from 'reactstrap';
+import "./ticketListing.css"
+import NewMessage from "../messages/CreateNewMessage";
 
 
 
 
 export default class TicketListingsPage extends Component {
     state = {
-       toShow: false,
+        toShow: false,
         level: "",
         dateofGame: "",
     }
     handleFieldChange = evt => {
         console.log(evt.target.value)
-        this.setState({dateofGame: evt.target.value  })
+        this.setState({ dateofGame: evt.target.value })
     }
 
-    toShowState = () =>  {
+    handleLevelFieldChange = evt => {
+        console.log(evt.target.value)
+        this.setState({ level: evt.target.value })
+    }
 
-        this.setState({toShow: !this.state.toShow})
+    toShowState = () => {
+
+        this.setState({ toShow: !this.state.toShow })
     }
     render() {
         console.log(this.state.dateofGame)
@@ -31,28 +37,28 @@ export default class TicketListingsPage extends Component {
 
         return (
             <React.Fragment>
-<CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-<SortTicketListings  {...this.props} toShowState={this.toShowState} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings}   />
+                <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
+                <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
                 {
 
-                this.state.toShow ? this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.userId !== activeUserId && listing.sold === false) || (listing.userId !== activeUserId && listing.sold === false && listing.level === this.state) ).map(listing =>
-                        <section key={listing.id} className="ticketListingCard card-body shadow">
-                            <h3 className="card-title">{listing.listingHeader}</h3>
-                            <p className="list-group-item">Opponent: {listing.opponent}</p>
-                            <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
-                            <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
-                            <p className="card-text"> Description: {listing.description}</p>
-                            <Link className="to Messages" to={`/messages`}>Message Seller: {listing.user.username} </Link>
+                    this.state.toShow ?
+
+                        this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.userId !== activeUserId && listing.sold === false) || (listing.userId !== activeUserId && listing.sold === false && listing.level === this.state.level)).map(listing =>
+                            <Card key={listing.id} className="ticketListingCard shawdow ">
+
+                                <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
+                                <CardText>Opponent: {listing.opponent}</CardText>
+                                <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
+                                <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
+                                <CardText> Description: {listing.description}</CardText>
+                                <NewMessage {...this.props} listing={listing} />
 
 
-                        </section>
+                            </Card>
+                        )
 
 
-
-                    )
-
-
-               : <TicketCard {...this.props} ticketListings={this.props.ticketListings}/>
+                        : <TicketCard {...this.props} ticketListings={this.props.ticketListings} />
 
                 }
 

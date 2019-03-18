@@ -10,7 +10,7 @@ export default class SortTicketListings extends Component {
 
 
 
-    
+
 
     filterBylevel = evt => {
         evt.preventDefault()
@@ -43,21 +43,22 @@ export default class SortTicketListings extends Component {
                             onChange={this.props.handleFieldChange}>
                             <option>Date of Game</option>
                             {optionItems}
+                            <option value = "">Show All Listings</option>
 
 
                         </select>
 
-                        {/* <select
-                            name="sortby"
-                            id="sortby"
-                            onChange={this.props.handleFieldChange}>
+                        <select
+                            name="level"
+                            id="level"
+                            onChange={this.props.handleLevelFieldChange}>
                             <option >Level</option>
                             <option value="Upper">Upper Bowl</option>
                             <option value="Club">Club Level</option>
                             <option value="Lower">Lower Bowl</option>
-                            <option >Show All Listings</option>
+                            <option value = "">Show All Listings</option>
 
-                        </select> */}
+                        </select>
 
 
 
