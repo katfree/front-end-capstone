@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Modal from 'react-responsive-modal';
-// import { Link } from "react-router-dom";
 
 
-export default class NewMessage extends Component {
+
+export default class ReplyToMessage extends Component {
+
     state = {
         message: "",
         userId: "",
         userSentToId: "",
-        open: false
     }
 
     handleFieldChange = evt => {
@@ -18,13 +18,7 @@ export default class NewMessage extends Component {
         this.setState(stateToChange)
     }
 
-    onOpenModal = () => {
-        this.setState({ open: true });
-    };
 
-    onCloseModal = () => {
-        this.setState({ open: false });
-    };
 
 
     SendNewMessage = evt => {
@@ -32,42 +26,25 @@ export default class NewMessage extends Component {
 
         const message = {
             message: this.state.message,
-            userId: parseInt(sessionStorage.getItem("credentials")),
-            userSentToId: this.props.listing.userId
+            userId: this.props.currentUserId,
+            userSentToId: this.props.SentBy.userId
         }
 
         this.props.SendNewMessage(message)
-        .then(() => this.NewConversation())
-        .then(() => this.onCloseModal())
     }
 
-    NewConversation = () => {
-        const Conversation = {
-            userId: parseInt(sessionStorage.getItem("credentials")),
-            userSentToId: this.props.listing.userId
-        }
 
-        this.props.NewConversations(Conversation)
-    }
 
 
 
 
 
     render() {
-        const { open } = this.state;
-        console.log(sessionStorage.getItem("credentials"))
         return (
             <React.Fragment>
-            <Button color="info" onClick={this.onOpenModal}>Message Seller: {this.props.listing.user.username} </Button>
-            <Modal open={open} onClose={this.onCloseModal} center>
-            <Form>
+                <Form>
                 <FormGroup>
-                    <Label
-                        id="basic-addon1"
-                        htmlFor="message">
-                        Message
-                        </Label>
+                    
                     <Input type="text"
                         placeholder="Message"
                         aria-describedby="basic-addon1"
@@ -84,9 +61,6 @@ export default class NewMessage extends Component {
                     onClick={this.SendNewMessage} >Send Message</Button>
 
              </Form>
-
-            </Modal>
-
             </React.Fragment>
         )
     }

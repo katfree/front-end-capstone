@@ -31,7 +31,7 @@ class NavBarComponent extends Component {
                 <NavLink href="/">Ticket Listings</NavLink>
               </NavItem>
               <Button
-          
+
           className=""
           onClick={this.logout}>
           Logout

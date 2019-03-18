@@ -26,7 +26,6 @@ export default class TicketCard extends Component {
                                 <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
                                 <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
                                 <CardText> Description: {listing.description}</CardText>
-                                {/* <Link className="toMessages text-info" to={`/messages`}>Message Seller: {listing.user.username} </Link> */}
                                 <NewMessage {...this.props} listing={listing}  />
 
 

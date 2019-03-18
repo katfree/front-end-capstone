@@ -14,7 +14,22 @@ export default {
             },
             body: JSON.stringify(obj)
         }).then(e => e.json())
-    }
+    },
+
+    AddNewConversation(obj) {
+        return fetch(`${Settings.remoteURL}/conversations`, {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json"
+             },
+             body: JSON.stringify(obj)
+         }).then(e => e.json())
+     },
+
+     async getAllConvos() {
+        const e = await fetch(`${Settings.remoteURL}/conversations?_expand=user&_expand=user`);
+        return await e.json();
+    },
 
 }
 

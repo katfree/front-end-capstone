@@ -2,13 +2,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
-import Nutshell from "./Nutshell"
+
 import * as serviceWorker from "./serviceWorker"
 import { BrowserRouter as Router } from "react-router-dom"
+import Capstone from './Nutshell';
 
 ReactDOM.render(
   <Router>
-    <Nutshell />
+    <Capstone />
   </Router>,
   document.getElementById("root")
 )
