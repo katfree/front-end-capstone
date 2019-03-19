@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import IsAuth from "./components/auth/IsAuth"
 
 
-class Nutshell extends Component {
+class Capstone extends Component {
   // a function that return true if the session Storage object contains the key credentials and false if it does not.
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
@@ -22,4 +22,4 @@ class Nutshell extends Component {
   }
 }
 
-export default Nutshell
+export default Capstone

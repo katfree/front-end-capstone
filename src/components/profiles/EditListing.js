@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { Button } from 'reactstrap';
 import moment from "moment"
 import TicketListingsManager from "../../modules/TicketListingsManager";
 import Modal from 'react-responsive-modal';
@@ -26,7 +26,7 @@ export default class EditListing extends Component {
         dateofGame: "",
         opponent: "",
         open: false,
-        sold: ""
+        sold: false
     }
 
     handleFieldChange = evt => {
@@ -80,24 +80,21 @@ export default class EditListing extends Component {
         let Datesarray = this.props.gameSchedule.dates || []
 
 
-        let optionItems = Datesarray.filter(obj => obj.date >= moment().format("YYYY-MM-DD")).flatMap(date =>
-            <option value={date.date} key={date.date} >{date.date}</option>
+        let optionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
+            <option value={game.date} key={game.date} >{game.date}</option>
         )
 
-
-
-        let Teamsarray = this.props.teams.teams || []
-        let TeamOptionItems = Teamsarray.filter(obj => obj.name !== "Nashville Predators").flatMap(team =>
-
-            <option value={this.state.opponent} key={team.name}>{team.name}</option>
+        console.log(optionItems)
+        let TeamOptionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
+            <option value={game.games[0].teams.away.team.name} key={game.games[0].teams.away.team.name} >{game.games[0].teams.away.team.name}</option>
         )
 
 
         const { open } = this.state;
         return (
             <React.Fragment>
+ <Button color="info" onClick={this.onOpenModal}>Edit</Button>
 
-<button onClick={this.onOpenModal}>Edit</button>
 <Modal open={open} onClose={this.onCloseModal} center>
             <form>
                 <div className="input-group">
@@ -149,7 +146,7 @@ export default class EditListing extends Component {
                             name="section"
                             id="section"
                             onChange={this.handleFieldChange}
-                        >   <option>Upper</option>
+                        >    <option >{this.state.section > 333 ? "Upper": this.state.section}</option>
                             <option value="301">301</option>
                             <option value="302">302</option>
                             <option value="303">303</option>
@@ -194,7 +191,7 @@ export default class EditListing extends Component {
                             name="section"
                             id="section"
                             onChange={this.handleFieldChange}
-                        >   <option >Club</option>
+                        >    <option >{this.state.section > 225 ? "Club": this.state.section}</option>
                             <option value="201">201</option>
                             <option value="202">202</option>
                             <option value="203">203</option>
@@ -334,8 +331,9 @@ export default class EditListing extends Component {
                 </div>
 
 
-                <button type="submit"
-                    onClick={this.updateListing}> Create Listing</button>
+
+                     <Button color="warning" type="submit"
+                    onClick={this.updateListing} >Submit Edited Listing</Button>
 
             </form>
             </Modal>

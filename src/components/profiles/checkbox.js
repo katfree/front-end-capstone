@@ -7,7 +7,7 @@ export default class CheckBox extends Component {
 
     state = {
         sold: false,
-         showing: true
+         showing: ""
 
     }
 
@@ -28,26 +28,30 @@ export default class CheckBox extends Component {
 
     }
 
+    componentDidMount(){
+        this.setState({showing: this.props.listing.sold})
+    }
+
     render() {
 
         const showing  = this.state.showing
         return (
             <React.Fragment>
 
-            { showing ?
-                <form>
+            { showing ? <div>SOLD </div>
+
+
+                :<form>
 
                 <label>Check When Sold</label>
                 <input type="checkbox" onClick={ () => { if (window.confirm('Are you sure you want to mark this item as sold?')) this.handleInputChange()} } ></input>
                 </form>
-
-                :<div>SOLD </div>
             }
 
 
             </React.Fragment>
         )
     }
-    
+
 
 }

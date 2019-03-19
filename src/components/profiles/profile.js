@@ -1,8 +1,12 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+
+import {
+    Card, Button, CardTitle, CardText, CardColumns,
+
+} from 'reactstrap';
 import EditListing from "./EditListing";
 import CreateNewTicketListing from "../ticketListings/CreateNewTicketListing";
-import TicketListingsManager from "../../modules/TicketListingsManager";
+
 import CheckBox from "./checkbox";
 
 
@@ -13,67 +17,66 @@ export default class Profile extends Component {
     render() {
 
 
-    const activeUserId = parseInt(sessionStorage.getItem("credentials"))
+        const activeUserId = parseInt(sessionStorage.getItem("credentials"))
 
-    return (
+        return (
 
-        <React.Fragment>
+            <React.Fragment>
 
-            <section>
-                <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-
-
-                <h1>My Tickets Listed/Sold</h1>
-                <div className="ticketListingContainer  " >
+                <section>
+                    <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
 
 
-                    {
-                        this.props.ticketListings.filter(listing => listing.userId === activeUserId).map(listing =>
-                            <section key={listing.id} className="ticketListingCard card-body shadow">
-                                <h3 className="card-title">{listing.listingHeader}</h3>
-                                <p className="list-group-item">Opponent: {listing.opponent}</p>
-                                <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
-                                <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
-                                <p className="card-text"> Description: {listing.description}</p>
-
-                                <CheckBox  {...this.props}     listing={listing}/>
-
-                                <EditListing {...this.props} CloseModal={this.onCloseModal} EditListing={this.props.EditListing} listing={listing} />
+                    <h1 className="profileHeader">My Tickets Listed/Sold</h1>
+                    <CardColumns>
 
 
+                        {
+                            this.props.ticketListings.filter(listing => listing.userId === activeUserId).map(listing =>
+                                <Card key={listing.id} className="ticketListingCard shawdow ">
 
+                                    <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
+                                    <CardText>Opponent: {listing.opponent}</CardText>
+                                    <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
+                                    <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
+                                    <CardText> Description: {listing.description}</CardText>
 
-                                <button onClick={() => this.props.DeleteListing(listing.id)}>Delete</button>
+                                    <CheckBox  {...this.props} listing={listing} />
 
-
-                            </section>
-
-
-                        )
-                    }
-
-
-                </div>
+                                    <EditListing {...this.props} CloseModal={this.onCloseModal} EditListing={this.props.EditListing} listing={listing} />
 
 
 
 
 
+                                    <Button color="danger" onClick={() => this.props.DeleteListing(listing.id)} >Delete</Button>
+
+
+
+                                </Card>
+
+
+                            )
+                        }
+
+
+                    </CardColumns>
 
 
 
 
 
 
-            </section>
 
-            <section>
-                <h1>Tickets Bought</h1>
+                </section>
+
+                {/* <section>
+                    <h1>Tickets Bought</h1>
 
 
 
-            </section>
-        </React.Fragment>
-    )
-}
+                </section> */}
+            </React.Fragment>
+        )
+    }
 }

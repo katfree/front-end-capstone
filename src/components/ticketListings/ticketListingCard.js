@@ -1,35 +1,42 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import {
+    Card, CardTitle, CardText, CardColumns,
+
+} from 'reactstrap';
+import { Link } from "react-router-dom";
 import "./ticketListing.css"
+import NewMessage from "../messages/CreateNewMessage";
 
 
 
 export default class TicketCard extends Component {
 
     render() {
+        const activeUserId = parseInt(sessionStorage.getItem("credentials"))
         return (
-            <div className="ticketListingContainer  " >
+            <CardColumns>
 
 
                     {
-                        this.props.ticketListings.map(listing =>
-                            <section key={listing.id} className="ticketListingCard card-body shadow">
-                                <h3 className="card-title">{listing.listingHeader}</h3>
-                                <p className="list-group-item">Opponent: {listing.opponent}</p>
-                                <p className="list-group-item">Date of Game:{" "} {listing.dateofGame}</p>
-                                <p className="list-group-item">Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</p>
-                                <p className="card-text"> Description: {listing.description}</p>
-                                <button >Message Seller: {listing.user.username} </button>
+                        this.props.ticketListings.filter(listing => listing.userId !== activeUserId && listing.sold === false).map(listing =>
+                            <Card key={listing.id} className="ticketListingCard shawdow ">
+
+                                <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
+                                <CardText>Opponent: {listing.opponent}</CardText>
+                                <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
+                                <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
+                                <CardText> Description: {listing.description}</CardText>
+                                <NewMessage {...this.props} listing={listing}  />
 
 
-                            </section>
+                            </Card>
 
 
                         )
                     }
 
 
-                </div>
+            </CardColumns>
         )
     }
 }
