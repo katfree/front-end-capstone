@@ -26,7 +26,7 @@ export default class EditListing extends Component {
         dateofGame: "",
         opponent: "",
         open: false,
-        sold: ""
+        sold: false
     }
 
     handleFieldChange = evt => {
