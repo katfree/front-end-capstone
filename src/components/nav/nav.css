@@ -1,4 +1,15 @@
-.navbar {
-   
+@import url("https://fonts.googleapis.com/css?family=Exo+2:200");
+
+
+
+
+
+.navlogo {
+    font-family: 'Exo 2', sans-serif;
+  font-size: 60rem;
+}
+
+.navItems {
+    font-family: 'Exo 2', sans-serif;
 }
 

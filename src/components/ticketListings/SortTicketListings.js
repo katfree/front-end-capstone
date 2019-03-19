@@ -47,7 +47,7 @@ export default class SortTicketListings extends Component {
                             onChange={this.props.handleFieldChange}>
                             <option value = "">Date of Game</option>
                             {optionItems}
-                            <option value = "">Show All Listings</option>
+                            
 
 
                         </select>
@@ -60,7 +60,7 @@ export default class SortTicketListings extends Component {
                             <option value="Upper">Upper Bowl</option>
                             <option value="Club">Club Level</option>
                             <option value="Lower">Lower Bowl</option>
-                            <option value = "">Show All Listings</option>
+                            
 
                         </select>
 

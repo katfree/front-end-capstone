@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2:200");
+
+body {
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+
 /* width: 18rem */
 
 .ticketListingContainer{
@@ -35,3 +43,4 @@
     display: flex;
     justify-content: center;
 }
+

@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { Button } from 'reactstrap';
 import "./login.css"
 import UserManager from "../../modules/UserManager"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import logo from "./logo.png"
 
 export default class Login extends Component {
   // Set initial state
@@ -40,7 +41,8 @@ export default class Login extends Component {
   render() {
     return (
       <React.Fragment>
-      <h1 className="logoHeader">App Header</h1>
+
+      <h1 className="logoHeader"><img src={logo}/></h1>
       <form className="loginForm">
       <div className="loginFormContainer shadow">
 
@@ -58,7 +60,7 @@ export default class Login extends Component {
           autoFocus=""
         />
         </div>
-        <div class="form-group shadow">
+        <div className="form-group shadow">
         <label htmlFor="inputPassword">Password</label>
         <input
           onChange={this.handleFieldChange}
@@ -69,7 +71,7 @@ export default class Login extends Component {
           required=""
         />
         </div>
-        <Button color="success" type="submit" class="btn btn-primary" onClick={this.handleLogin}>
+        <Button color="success" type="submit" className="btn btn-primary" onClick={this.handleLogin}>
           Sign in
         </Button>
 

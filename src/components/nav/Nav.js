@@ -10,6 +10,8 @@ import {
   NavLink,
   Button } from 'reactstrap';
 
+  import "./nav.css"
+
 class NavBarComponent extends Component {
   logout = () => {
     sessionStorage.clear("credentials")
@@ -19,16 +21,16 @@ class NavBarComponent extends Component {
   render() {
     return (
        <Navbar color="dark" dark sticky={'top'}  expand="md" className="navbar">
-          <NavbarBrand href="/">App Name</NavbarBrand>
+          <NavbarBrand href="/" className="navlogo">Breakaway Tickets</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/messages">Messages</NavLink>
+                <NavLink href="/messages" className="navItems">Messages</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href="/profile" className="navItems">Profile</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Ticket Listings</NavLink>
+                <NavLink href="/" className="navItems">Ticket Listings</NavLink>
               </NavItem>
               <Button
 
