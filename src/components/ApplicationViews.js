@@ -54,8 +54,8 @@ class ApplicationViews extends Component {
 
   NewConversations = conversation => {
     return MessageManager.AddNewConversation(conversation)
-   .then(() => MessageManager.getAllConvos())
-      .then(conversations => this.setState({conversations: conversations}))
+      .then(() => MessageManager.getAllConvos())
+      .then(conversations => this.setState({ conversations: conversations }))
 
   }
 
@@ -67,21 +67,21 @@ class ApplicationViews extends Component {
     const newState = {}
 
     UserManager.getAll()
-    .then(users => newState.users = users)
+      .then(users => newState.users = users)
 
-    TicketListingsManager.getAll()
+      .then(() => TicketListingsManager.getAll())
       .then(ticketListings => newState.ticketListings = ticketListings)
 
-    HockeyapiManager.getAllGames()
+      .then(() => HockeyapiManager.getAllGames())
       .then(gameSchedule => newState.gameSchedule = gameSchedule)
 
-    HockeyapiManager.getAllTeams()
+      .then(() => HockeyapiManager.getAllTeams())
       .then(teams => newState.teams = teams)
 
-    MessageManager.getAll()
+      .then(() => MessageManager.getAll())
       .then(messages => newState.messages = messages)
 
-      MessageManager.getAllConvos()
+      .then(() => MessageManager.getAllConvos())
       .then(conversations => newState.conversations = conversations)
 
       .then(() => this.setState(newState))
@@ -92,6 +92,7 @@ class ApplicationViews extends Component {
 
   render() {
     console.log(this.props.activeUser)
+
     return (
 
       <React.Fragment>
@@ -130,7 +131,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/messages" render={(props) => {
           return <Messages {...this.props} {...props}
-          messages={this.state.messages}
+            messages={this.state.messages}
             conversations={this.state.conversations}
             users={this.state.users}
 

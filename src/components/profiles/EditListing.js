@@ -80,16 +80,13 @@ export default class EditListing extends Component {
         let Datesarray = this.props.gameSchedule.dates || []
 
 
-        let optionItems = Datesarray.filter(obj => obj.date >= moment().format("YYYY-MM-DD")).flatMap(date =>
-            <option value={date.date} key={date.date} >{date.date}</option>
+        let optionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
+            <option value={game.date} key={game.date} >{game.date}</option>
         )
 
-
-
-        let Teamsarray = this.props.teams.teams || []
-        let TeamOptionItems = Teamsarray.filter(obj => obj.name !== "Nashville Predators").flatMap(team =>
-
-            <option value={this.state.opponent} key={team.name}>{team.name}</option>
+        console.log(optionItems)
+        let TeamOptionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
+            <option value={game.games[0].teams.away.team.name} key={game.games[0].teams.away.team.name} >{game.games[0].teams.away.team.name}</option>
         )
 
 

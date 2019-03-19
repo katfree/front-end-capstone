@@ -21,10 +21,14 @@ export default class SortTicketListings extends Component {
     render() {
         let Datesarray = this.props.gameSchedule.dates || []
 
+        console.log(Datesarray)
+
 
         let optionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
             <option value={game.date} key={game.date} >{game.date}</option>
         )
+
+        console.log(optionItems)
         return (
             <React.Fragment>
                 <form>
@@ -41,7 +45,7 @@ export default class SortTicketListings extends Component {
                             name="dateofGame"
                             id="dateofGame"
                             onChange={this.props.handleFieldChange}>
-                            <option>Date of Game</option>
+                            <option value = "">Date of Game</option>
                             {optionItems}
                             <option value = "">Show All Listings</option>
 
@@ -52,7 +56,7 @@ export default class SortTicketListings extends Component {
                             name="level"
                             id="level"
                             onChange={this.props.handleLevelFieldChange}>
-                            <option >Level</option>
+                            <option value = "">Level</option>
                             <option value="Upper">Upper Bowl</option>
                             <option value="Club">Club Level</option>
                             <option value="Lower">Lower Bowl</option>
