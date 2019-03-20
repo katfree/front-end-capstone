@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import Modal from 'react-responsive-modal';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
+import moment from 'moment'
+
 
 
 
@@ -10,6 +11,7 @@ export default class ReplyToMessage extends Component {
         message: "",
         userId: "",
         userSentToId: "",
+        timestamp: "",
     }
 
     handleFieldChange = evt => {
@@ -27,7 +29,8 @@ export default class ReplyToMessage extends Component {
         const message = {
             message: this.state.message,
             userId: this.props.currentUserId,
-            userSentToId: this.props.SentBy.userId
+            userSentToId: this.props.SentBy.userId,
+            timestamp: moment().format('LLL')
         }
 
         this.props.SendNewMessage(message)
@@ -44,7 +47,7 @@ export default class ReplyToMessage extends Component {
             <React.Fragment>
                 <Form>
                 <FormGroup>
-                    
+
                     <Input type="text"
                         placeholder="Message"
                         aria-describedby="basic-addon1"

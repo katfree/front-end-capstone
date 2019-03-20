@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Modal from 'react-responsive-modal';
+import moment from 'moment'
 // import { Link } from "react-router-dom";
 
 
@@ -9,6 +10,7 @@ export default class NewMessage extends Component {
         message: "",
         userId: "",
         userSentToId: "",
+        timestamp: "",
         open: false
     }
 
@@ -33,7 +35,8 @@ export default class NewMessage extends Component {
         const message = {
             message: this.state.message,
             userId: parseInt(sessionStorage.getItem("credentials")),
-            userSentToId: this.props.listing.userId
+            userSentToId: this.props.listing.userId,
+            timestamp: moment().format('LLL')
         }
 
         this.props.SendNewMessage(message)
@@ -44,7 +47,8 @@ export default class NewMessage extends Component {
     NewConversation = () => {
         const Conversation = {
             userId: parseInt(sessionStorage.getItem("credentials")),
-            userSentToId: this.props.listing.userId
+            userSentToId: this.props.listing.userId,
+
         }
 
         this.props.NewConversations(Conversation)

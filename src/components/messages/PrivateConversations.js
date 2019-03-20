@@ -13,9 +13,10 @@ export default class PrivateConversations extends Component {
         return(
             <div className="privatemessage">
                 {this.props.messages.filter(message => ((message.userSentToId === currentUserId && message.userId === SentBy.userId) || (message.userId === currentUserId && message.userSentToId === SentBy.userId)) ).map(message =>
-                    <div>
-                        {message.message}
-                        {" "}Sent By: {message.user.firstName}
+                    <div >
+                        <h3 className="messages" >{message.message}</h3> <p className="messages"> Sent By: {message.user.firstName} at {message.timestamp}</p>
+
+
 
 
                     </div>

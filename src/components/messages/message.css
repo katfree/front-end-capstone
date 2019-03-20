@@ -44,3 +44,8 @@
   .privatemessage{
     font-family: 'Exo 2', sans-serif;
   }
+
+  .messages{
+      display: flex;
+      /* justify-content: center; */
+  }
