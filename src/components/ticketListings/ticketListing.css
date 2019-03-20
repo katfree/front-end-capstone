@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Exo+2:200");
+@import url("https://fonts.googleapis.com/css?family=Exo+2:400");
 
 body {
-    font-family: 'Exo 2', sans-serif;
+   font-family: 'Exo 2', sans-serif;
 }
 
 
@@ -25,6 +25,7 @@ body {
     display: flex;
     justify-content: center;
     width: 400px;
+   font-family: 'Exo 2', sans-serif;
 }
 
 
@@ -32,15 +33,27 @@ body {
     display: flex;
     justify-items: center;
     padding-top: 10px;
+   font-family: 'Exo 2', sans-serif;
 }
 
 .listingHeader{
+
     display: flex;
-    justify-content: center
+    justify-content: center;
+   font-family: 'Exo 2', sans-serif;
+   font-weight: bolder;
 }
 
 .profileHeader{
     display: flex;
     justify-content: center;
+   font-family: 'Exo 2', sans-serif;
 }
 
+
+
+Button {
+    display: flex;
+    justify-content: center;
+
+}

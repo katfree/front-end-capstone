@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import ReplyToMessage from "./ReplytoMessageInConvo";
+import "./message.css"
 
 export default class PrivateConversations extends Component {
 
@@ -10,7 +11,7 @@ export default class PrivateConversations extends Component {
 
         const currentUserId = parseInt(sessionStorage.getItem("credentials"))
         return(
-            <div>
+            <div className="privatemessage">
                 {this.props.messages.filter(message => ((message.userSentToId === currentUserId && message.userId === SentBy.userId) || (message.userId === currentUserId && message.userSentToId === SentBy.userId)) ).map(message =>
                     <div>
                         {message.message}

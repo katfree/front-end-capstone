@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import moment from "moment"
 
 
@@ -31,15 +31,15 @@ export default class SortTicketListings extends Component {
         console.log(optionItems)
         return (
             <React.Fragment>
-                <form>
+                <Form>
 
-                    <div>
-                        <label className="input-group-addon basic-addon1"
+                    <FormGroup>
+                        <Label className="input-group-addon basic-addon1"
                             id="basic-addon1"
                             htmlFor="sortby">
                             Search By...
 
-                        </label>
+                        </Label>
 
                         <select
                             name="dateofGame"
@@ -60,16 +60,16 @@ export default class SortTicketListings extends Component {
                             <option value="Upper">Upper Bowl</option>
                             <option value="Club">Club Level</option>
                             <option value="Lower">Lower Bowl</option>
-                            
+
 
                         </select>
 
+                        </FormGroup>
+
+                        <Button type="submit" className="listingpagebutton" onClick={this.filterBylevel}>Search</Button>
 
 
-                        <button type="submit" onClick={this.filterBylevel}>Search</button>
-                    </div>
-
-                </form>
+                    </Form>
 
 
             </React.Fragment>

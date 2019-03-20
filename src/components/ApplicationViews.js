@@ -8,6 +8,9 @@ import Messages from "./messages/messages";
 import MessageManager from "../modules/MessageManager";
 import PrivateConversations from "./messages/PrivateConversations";
 import UserManager from "../modules/UserManager";
+import Roster from "./Roster/roster";
+import Schedule from "./Schedule/schedule";
+
 
 class ApplicationViews extends Component {
   state = {
@@ -16,7 +19,10 @@ class ApplicationViews extends Component {
     teams: [],
     messages: [],
     conversations: [],
-    users: []
+    users: [],
+    roster: [],
+    upcomingGameInfo: []
+
   }
 
   DeleteListing = id => {
@@ -38,6 +44,8 @@ class ApplicationViews extends Component {
         })
       )
   }
+
+
 
   EditListing = (editedListingObject, id) => {
     return TicketListingsManager.EditListing(editedListingObject, id)
@@ -69,6 +77,9 @@ class ApplicationViews extends Component {
     UserManager.getAll()
       .then(users => newState.users = users)
 
+      .then(() => HockeyapiManager.getTeamRoster())
+      .then(roster => newState.roster = roster)
+
       .then(() => TicketListingsManager.getAll())
       .then(ticketListings => newState.ticketListings = ticketListings)
 
@@ -84,6 +95,14 @@ class ApplicationViews extends Component {
       .then(() => MessageManager.getAllConvos())
       .then(conversations => newState.conversations = conversations)
 
+      .then(() => HockeyapiManager.getUpcomingGameInfo())
+      .then((upcomingGameInfo => newState.upcomingGameInfo = upcomingGameInfo))
+
+
+
+
+
+
       .then(() => this.setState(newState))
 
   }
@@ -91,7 +110,7 @@ class ApplicationViews extends Component {
 
 
   render() {
-    console.log(this.props.activeUser)
+
 
     return (
 
@@ -156,6 +175,28 @@ class ApplicationViews extends Component {
 
         }}
         />
+
+        <Route path="/PredatorsRoster" render={(props) => {
+          return <Roster  {...this.props} {...props}
+            roster={this.state.roster}
+
+
+          />
+        }}
+        />
+
+<Route path="/schedule" render={(props) => {
+          return <Schedule  {...this.props} {...props}
+          upcomingGameInfo={this.state.upcomingGameInfo}
+          gameSchedule={this.state.gameSchedule}
+
+
+
+          />
+        }}
+        />
+
+
 
 
 

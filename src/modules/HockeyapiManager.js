@@ -7,6 +7,15 @@ export default {
       getAllTeams() {
           return fetch ("https://statsapi.web.nhl.com/api/v1/teams")
           .then(e => e.json())
+      },
+      getTeamRoster() {
+          return fetch("https://statsapi.web.nhl.com/api/v1/teams/18/roster")
+          .then(e => e.json())
+
+      },
+      getUpcomingGameInfo() {
+          return fetch("https://statsapi.web.nhl.com/api/v1/teams/18/?expand=team.schedule.next")
+          .then(e => e.json())
       }
 
 }

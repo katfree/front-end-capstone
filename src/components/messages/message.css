@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2:900");
+
+
+
+.messageLink:link, .messageLink:visited {
+    background-color: #3248c5;
+    color: white;
+    padding: 30px 100px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Exo 2', sans-serif;
+
+
+  }
+  
+  .messageLink:hover, .messageLink:active {
+    background-color: red;
+    font-family: 'Exo 2', sans-serif;
+  }
+
+
+  .inbox{
+      display: flex;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+
+  }
+
+  .linkcontainer{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-family: 'Exo 2', sans-serif;
+  }
+
+
+  .messageLink{
+      display: flex;
+      justify-content: space-around;
+      font-family: 'Exo 2', sans-serif;
+  }
+
+  .privatemessage{
+    font-family: 'Exo 2', sans-serif;
+  }

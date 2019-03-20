@@ -1,0 +1,8 @@
+.schedule{
+    display: flex;
+    flex-flow: row;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     align-items: center;
+}

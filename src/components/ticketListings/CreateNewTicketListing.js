@@ -24,7 +24,7 @@ export default class CreateNewTicketListing extends Component {
     return (
       <React.Fragment>
 
-        <Button color="warning" className="sellButton" onClick={this.onOpenModal} >Sell Your Tickets</Button>
+        <Button color="dark" className="listingpagebutton" onClick={this.onOpenModal} >Sell Your Tickets</Button>
 
         <Modal open={open} onClose={this.onCloseModal} center>
           <NewListingForm {...this.props} CloseModal={this.onCloseModal} AddNewTicketListing={this.props.AddNewTicketListing} />

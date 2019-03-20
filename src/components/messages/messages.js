@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom";
+import "./message.css"
 
 
 
@@ -14,6 +15,7 @@ export default class Messages extends Component {
 
         return (
             <div >
+                <h1 className="inbox">Inbox</h1>
 
                 {
                     this.props.messages.filter(message => message.userSentToId === currentUserId).filter((message, index, self) =>
@@ -22,8 +24,9 @@ export default class Messages extends Component {
                         ))
                     ).map(
                         message =>
-                            <div key={message.userId}>
-                                <Link className="" to={`/messages/${message.userId}`}>Got to conversation With: {message.user.firstName}</Link>
+
+                            <div key={message.userId} className="linkcontainer">
+                                <Link className="messageLink" to={`/messages/${message.userId}`}>Got to conversation With: {message.user.firstName}</Link>
                             </div>
                     )
 

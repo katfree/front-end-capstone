@@ -45,7 +45,7 @@ export default class TicketListingsPage extends Component {
         return (
             <React.Fragment>
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-                <Button onClick={this.toShowStateFalse}>Show All Listings</Button>
+                <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>
                 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
                 {
 

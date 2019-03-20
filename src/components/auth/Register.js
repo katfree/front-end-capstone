@@ -1,8 +1,8 @@
 
 import React, { Component } from "react"
-import { Button } from 'reactstrap';
 import "./login.css"
 import UserManager from "../../modules/UserManager"
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default class Register extends Component {
 
@@ -36,11 +36,11 @@ export default class Register extends Component {
             }
             else {
                 UserManager.addUser(newUser)
-                .then(user => {
-                    sessionStorage.setItem("credentials", parseInt(user.id));
-                    this.props.setAuth();
-                })
-                .then(() => this.props.history.push('/'));
+                    .then(user => {
+                        sessionStorage.setItem("credentials", parseInt(user.id));
+                        this.props.setAuth();
+                    })
+                    .then(() => this.props.history.push('/'));
             }
         } else {
             alert("Please Fill Out Form 😬!")
@@ -49,12 +49,11 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div className ="RegistrationForm">
-            <div className ="RegistrationForm">
-                <form >
-                    <h1 className="h3 mb-3 font-weight-normal">Register Here</h1>
-                    <label htmlFor="inputUsername">Username</label>
-                    <input
+            <Form className="RegistrationForm" >
+                <h1 className="">Register Here</h1>
+                <FormGroup>
+                    <Label htmlFor="inputUsername">Username</Label>
+                    <Input
                         onChange={this.handleFieldChange}
                         type="username"
                         id="username"
@@ -62,34 +61,45 @@ export default class Register extends Component {
                         required=""
                         autoFocus=""
                     />
-                     <label htmlFor="inputPassword">Password</label>
-                     <input
+                </FormGroup>
+
+                <FormGroup>
+                    <Label htmlFor="inputPassword">Password</Label>
+                    <Input
                         onChange={this.handleFieldChange}
                         type="password"
                         id="password"
                         placeholder={'password'}
                         required=""
-                        />
+                    />
+                </FormGroup>
 
-                    <label htmlFor="inputfirstName">First Name</label>
-                     <input
+                <FormGroup>
+                    <Label htmlFor="inputfirstName">First Name</Label>
+                    <Input
                         onChange={this.handleFieldChange}
                         type="firstName"
                         id="firstName"
                         placeholder={'first name'}
                         required=""
-                        />
-                     <label htmlFor="inputlastName">Last Name</label>
-                     <input
+                    />
+
+                </FormGroup>
+
+                <FormGroup>
+                    <Label htmlFor="inputlastName">Last Name</Label>
+                    <Input
                         onChange={this.handleFieldChange}
                         type="lastName"
                         id="lastName"
                         placeholder={'last name'}
                         required=""
-                        />
+                    />
+
+                </FormGroup>
 
                 <Button color="success" type="submit"
-                onClick={this.handleRegister}> Register </Button>
+                    onClick={this.handleRegister}> Register </Button>
 
 
 
@@ -97,12 +107,7 @@ export default class Register extends Component {
 
 
 
-                </form >
-
-
-                </div>
-
-                </div>
+            </Form>
 
 
 

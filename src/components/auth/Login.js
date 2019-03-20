@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import "./login.css"
 import UserManager from "../../modules/UserManager"
 import { Link } from "react-router-dom"
@@ -43,13 +43,15 @@ export default class Login extends Component {
       <React.Fragment>
 
       <h1 className="logoHeader"><img src={logo}/></h1>
-      <form className="loginForm">
-      <div className="loginFormContainer shadow">
+      <Form className="loginForm">
+      <div className="loginFormContainer">
 
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <div className="form-group shadow">
-        <label htmlFor="inputUsername">Username</label>
-        <input
+      {/* <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1> */}
+
+
+      <FormGroup>
+        <Label htmlFor="inputUsername">Username</Label>
+        <Input
           onChange={this.handleFieldChange}
           type="username"
           className="form-control"
@@ -59,10 +61,10 @@ export default class Login extends Component {
           required=""
           autoFocus=""
         />
-        </div>
-        <div className="form-group shadow">
-        <label htmlFor="inputPassword">Password</label>
-        <input
+       </FormGroup>
+        <FormGroup>
+        <Label htmlFor="inputPassword">Password</Label>
+        <Input
           onChange={this.handleFieldChange}
           type="password"
           className="form-control"
@@ -70,14 +72,15 @@ export default class Login extends Component {
           placeholder={` Don't tell!`}
           required=""
         />
-        </div>
+        </FormGroup>
+
         <Button color="success" type="submit" className="btn btn-primary" onClick={this.handleLogin}>
           Sign in
         </Button>
 
       <Link className="toregistrationForm" to={`/register`}>Register</Link>
       </div>
-      </form>
+      </Form>
       </React.Fragment>
 
 
