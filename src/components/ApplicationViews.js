@@ -10,6 +10,7 @@ import PrivateConversations from "./messages/PrivateConversations";
 import UserManager from "../modules/UserManager";
 import Roster from "./Roster/roster";
 import Schedule from "./Schedule/schedule";
+import Standings from "./standings/standings";
 
 
 class ApplicationViews extends Component {
@@ -115,7 +116,7 @@ class ApplicationViews extends Component {
 
 
   render() {
-    console.log(this.state.standings)
+
     return (
 
       <React.Fragment>
@@ -189,11 +190,20 @@ class ApplicationViews extends Component {
         }}
         />
 
-<Route path="/schedule" render={(props) => {
+        <Route path="/schedule" render={(props) => {
           return <Schedule  {...this.props} {...props}
-          upcomingGameInfo={this.state.upcomingGameInfo}
-          gameSchedule={this.state.gameSchedule}
+            upcomingGameInfo={this.state.upcomingGameInfo}
+            gameSchedule={this.state.gameSchedule}
 
+
+
+          />
+        }}
+        />
+
+        <Route path="/standings" render={(props) => {
+          return <Standings  {...this.props} {...props}
+            standings={this.state.standings}
 
 
           />

@@ -52,8 +52,20 @@ body {
 
 
 
-Button {
+button {
+    margin: 5px !important;
+
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.sortdiv {
     display: flex;
     justify-content: center;
+    transform: translateY(-44px);
 
 }

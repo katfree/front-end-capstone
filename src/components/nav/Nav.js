@@ -28,7 +28,7 @@ class NavBarComponent extends Component {
             <NavLink href="/schedule" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Game Schedule</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/standings" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>League Standings</NavLink>
+            <NavLink href="/standings" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Standings</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/PredatorsRoster" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Team Roster</NavLink>

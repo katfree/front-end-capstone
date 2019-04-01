@@ -16,7 +16,11 @@ export default class TicketCard extends Component {
     render() {
         const activeUserId = parseInt(sessionStorage.getItem("credentials"))
         return (
+            <React.Fragment>
+                <h1 className="listingHeader">All Listings</h1>
+
             <CardColumns>
+
 
 
                     {
@@ -39,6 +43,7 @@ export default class TicketCard extends Component {
 
 
             </CardColumns>
+            </React.Fragment>
         )
     }
 }
