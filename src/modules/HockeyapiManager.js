@@ -16,6 +16,11 @@ export default {
       getUpcomingGameInfo() {
           return fetch("https://statsapi.web.nhl.com/api/v1/teams/18/?expand=team.schedule.next")
           .then(e => e.json())
+      },
+      getStandings(){
+          return fetch("https://statsapi.web.nhl.com/api/v1/standings.record")
+          .then(e => e.json())
+
       }
 
 }

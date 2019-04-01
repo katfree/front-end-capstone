@@ -6,10 +6,12 @@ import {
 import { Link } from "react-router-dom";
 import "./ticketListing.css"
 import NewMessage from "../messages/CreateNewMessage";
+import moment from "moment"
 
 
 
 export default class TicketCard extends Component {
+
 
     render() {
         const activeUserId = parseInt(sessionStorage.getItem("credentials"))
@@ -18,7 +20,7 @@ export default class TicketCard extends Component {
 
 
                     {
-                        this.props.ticketListings.filter(listing => listing.userId !== activeUserId && listing.sold === false).map(listing =>
+                        this.props.ticketListings.filter(listing => listing.userId !== activeUserId && listing.sold === false && listing.dateofGame >= moment().format("YYYY-MM-DD")).map(listing =>
                             <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                 <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>

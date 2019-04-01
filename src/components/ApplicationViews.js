@@ -21,7 +21,8 @@ class ApplicationViews extends Component {
     conversations: [],
     users: [],
     roster: [],
-    upcomingGameInfo: []
+    upcomingGameInfo: [],
+    standings: []
 
   }
 
@@ -98,6 +99,10 @@ class ApplicationViews extends Component {
       .then(() => HockeyapiManager.getUpcomingGameInfo())
       .then((upcomingGameInfo => newState.upcomingGameInfo = upcomingGameInfo))
 
+      .then(() => HockeyapiManager.getStandings())
+      .then((standings => newState.standings = standings))
+
+
 
 
 
@@ -110,8 +115,7 @@ class ApplicationViews extends Component {
 
 
   render() {
-
-
+    console.log(this.state.standings)
     return (
 
       <React.Fragment>
