@@ -10,12 +10,14 @@
     text-decoration: none;
     display: inline-block;
     font-family: 'Exo 2', sans-serif;
+    border-radius: 20px;
+    margin: 20px;
 
 
   }
   
   .messageLink:hover, .messageLink:active {
-    background-color: red;
+    background-color: rgb(80, 217, 252);
     font-family: 'Exo 2', sans-serif;
   }
 
@@ -25,6 +27,7 @@
       justify-content: center;
       font-family: 'Exo 2', sans-serif;
 
+
   }
 
   .linkcontainer{
@@ -32,6 +35,7 @@
       justify-content: center;
       flex-wrap: wrap;
       font-family: 'Exo 2', sans-serif;
+
   }
 
 
@@ -48,4 +52,10 @@
   .messages{
       display: flex;
       /* justify-content: center; */
+  }
+
+  .messageCard {
+    margin: 20px;
+
+
   }

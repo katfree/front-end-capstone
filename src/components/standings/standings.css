@@ -1,0 +1,18 @@
+.eastern{
+    padding-top: 10px;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.western{
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    /* background-color: rgba(0, 38, 255, 0.548); */
+}
+
+.info{
+    padding-left: 20px;
+}

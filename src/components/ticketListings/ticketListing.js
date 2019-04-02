@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
 import SortTicketListings from "./SortTicketListings";
-import { Button, Card, CardTitle, CardText, } from 'reactstrap';
+import { Button, Card, CardTitle, CardText,CardColumns } from 'reactstrap';
 import "./ticketListing.css"
 import NewMessage from "../messages/CreateNewMessage";
 import HockeyapiManager from "../../modules/HockeyapiManager";

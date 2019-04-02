@@ -31,9 +31,9 @@ export default class SortTicketListings extends Component {
         console.log(optionItems)
         return (
             <React.Fragment>
-                <Form>
+                {/* <Form> */}
 
-                    <FormGroup>
+                    {/* <FormGroup> */}
                         <Label className="input-group-addon basic-addon1"
                             id="basic-addon1"
                             htmlFor="sortby">
@@ -64,12 +64,12 @@ export default class SortTicketListings extends Component {
 
                         </select>
 
-                        </FormGroup>
+                        {/* </FormGroup> */}
 
                         <Button type="submit" className="listingpagebutton" onClick={this.filterBylevel}>Search</Button>
 
 
-                    </Form>
+                    {/* </Form> */}
 
 
             </React.Fragment>
