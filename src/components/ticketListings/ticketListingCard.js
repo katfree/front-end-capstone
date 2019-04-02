@@ -19,7 +19,7 @@ export default class TicketCard extends Component {
             <React.Fragment>
                 <h1 className="listingHeader">All Listings</h1>
 
-            <CardColumns>
+            <CardColumns className="listingcard">
 
 
 

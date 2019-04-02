@@ -35,157 +35,161 @@ export default class Standings extends Component {
         return (
             <React.Fragment>
 
-<React.Fragment>
+                <React.Fragment>
                     <h1 className="western" style={{ color: 'blue', textDecoration: 'none' }}>Western Conference</h1>
-                <Table>
+                    <Table>
 
 
-                <thead>
-                        <tr>
-                            {/* <th>#</th> */}
-                            <th>Central Division</th>
-                            <th>Games Played</th>
+                        <thead>
+                            <tr>
+                                {/* <th>#</th> */}
+                                <th>Central Division</th>
+                                <th>Games Played</th>
 
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>OT</th>
-                            <th>Points</th>
-                            <th>Row</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>OT</th>
+                                <th>Points</th>
+                                <th>ROW</th>
 
-                        </tr>
-                    </thead>
+                            </tr>
+                        </thead>
 
-                    {CentralDiv.map(standing =>
-                         <tbody >
-                         <tr>
-                             {/* <th scope="row"></th> */}
-                             <td>{standing.clinchIndicator} {standing.team.name}</td>
-                             <td>{standing.gamesPlayed}</td>
+                        {CentralDiv.map(standing =>
+                            <tbody >
+                                <tr>
+                                    {/* <th scope="row"></th> */}
+                                    <td>{standing.clinchIndicator} {standing.team.name}</td>
+                                    <td>{standing.gamesPlayed}</td>
 
-                             <td>{standing.leagueRecord.wins}</td>
-                             <td>{standing.leagueRecord.losses}</td>
-                             <td>{standing.leagueRecord.ot}</td>
-                             <td>{standing.points}</td>
-                             <td>{standing.row}</td>
+                                    <td>{standing.leagueRecord.wins}</td>
+                                    <td>{standing.leagueRecord.losses}</td>
+                                    <td>{standing.leagueRecord.ot}</td>
+                                    <td>{standing.points}</td>
+                                    <td>{standing.row}</td>
 
-                         </tr>
-
-
-                     </tbody>)}
-
-                     <thead>
-                        <tr>
-                            {/* <th>#</th> */}
-                            <th>Pacific Division</th>
-                            <th>Games Played</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>OT</th>
-                            <th>Points</th>
-                            <th>Row</th>
-
-                        </tr>
-                    </thead>
-
-                    {PacificDiv.map(standing =>
-                         <tbody >
-                         <tr>
-                             {/* <th scope="row"></th> */}
-                             <td>{standing.clinchIndicator} {standing.team.name}</td>
-                             <td>{standing.gamesPlayed}</td>
-                             <td>{standing.leagueRecord.wins}</td>
-                             <td>{standing.leagueRecord.losses}</td>
-                             <td>{standing.leagueRecord.ot}</td>
-                             <td>{standing.points}</td>
-                             <td>{standing.row}</td>
-
-                         </tr>
+                                </tr>
 
 
-                     </tbody>)}
+                            </tbody>)}
+
+                        <thead>
+                            <tr>
+                                {/* <th>#</th> */}
+                                <th>Pacific Division</th>
+                                <th>Games Played</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>OT</th>
+                                <th>Points</th>
+                                <th>ROW</th>
+
+                            </tr>
+                        </thead>
+
+                        {PacificDiv.map(standing =>
+                            <tbody >
+                                <tr>
+                                    {/* <th scope="row"></th> */}
+                                    <td>{standing.clinchIndicator} {standing.team.name}</td>
+                                    <td>{standing.gamesPlayed}</td>
+                                    <td>{standing.leagueRecord.wins}</td>
+                                    <td>{standing.leagueRecord.losses}</td>
+                                    <td>{standing.leagueRecord.ot}</td>
+                                    <td>{standing.points}</td>
+                                    <td>{standing.row}</td>
+
+                                </tr>
 
 
-                </Table>
+                            </tbody>)}
+
+
+                    </Table>
 
 
                 </React.Fragment>
 
                 <React.Fragment>
                     <h1 className="eastern" style={{ color: 'red', textDecoration: 'none' }}>Eastern Conference</h1>
-                <Table>
+                    <Table>
 
 
-                <thead>
-                        <tr>
-                            {/* <th>#</th> */}
-                            <th>Metropolitan Division</th>
-                            <th>Games Played</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>OT</th>
-                            <th>Points</th>
-                            <th>Row</th>
+                        <thead>
+                            <tr>
+                                {/* <th>#</th> */}
+                                <th>Metropolitan Division</th>
+                                <th>Games Played</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>OT</th>
+                                <th>Points</th>
+                                <th>ROW</th>
 
-                        </tr>
-                    </thead>
+                            </tr>
+                        </thead>
 
-                    {Metropolitan.map(standing =>
-                         <tbody >
-                         <tr>
-                             {/* <th scope="row"></th> */}
-                             <td>{standing.clinchIndicator} {standing.team.name}</td>
-                             <td>{standing.gamesPlayed}</td>
-                             <td>{standing.leagueRecord.wins}</td>
-                             <td>{standing.leagueRecord.losses}</td>
-                             <td>{standing.leagueRecord.ot}</td>
-                             <td>{standing.points}</td>
-                              <td>{standing.row}</td>
+                        {Metropolitan.map(standing =>
+                            <tbody >
+                                <tr>
+                                    {/* <th scope="row"></th> */}
+                                    <td>{standing.clinchIndicator} {standing.team.name}</td>
+                                    <td>{standing.gamesPlayed}</td>
+                                    <td>{standing.leagueRecord.wins}</td>
+                                    <td>{standing.leagueRecord.losses}</td>
+                                    <td>{standing.leagueRecord.ot}</td>
+                                    <td>{standing.points}</td>
+                                    <td>{standing.row}</td>
 
-                         </tr>
-
-
-                     </tbody>)}
-
-                     <thead>
-                        <tr>
-                            {/* <th>#</th> */}
-                            <th>Atlantic Division</th>
-                            <th>Games Played</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>OT</th>
-                            <th>Points</th>
-                            <th>Row</th>
-
-                        </tr>
-                    </thead>
-
-                    {AtlanticConf.map(standing =>
-                         <tbody >
-                         <tr>
-                             {/* <th scope="row"></th> */}
-                             <td>{standing.clinchIndicator} {standing.team.name}</td>
-                             <td>{standing.gamesPlayed}</td>
-                             <td>{standing.leagueRecord.wins}</td>
-                             <td>{standing.leagueRecord.losses}</td>
-                             <td>{standing.leagueRecord.ot}</td>
-                             <td>{standing.points}</td>
-                             <td>{standing.row}</td>
-
-                         </tr>
+                                </tr>
 
 
-                     </tbody>)}
+                            </tbody>)}
+
+                        <thead>
+                            <tr>
+                                {/* <th>#</th> */}
+                                <th>Atlantic Division</th>
+                                <th>Games Played</th>
+                                <th>Wins</th>
+                                <th>Losses</th>
+                                <th>OT</th>
+                                <th>Points</th>
+                                <th>ROW</th>
+
+                            </tr>
+                        </thead>
+
+                        {AtlanticConf.map(standing =>
+                            <tbody >
+                                <tr>
+                                    {/* <th scope="row"></th> */}
+                                    <td>{standing.clinchIndicator} {standing.team.name}</td>
+                                    <td>{standing.gamesPlayed}</td>
+                                    <td>{standing.leagueRecord.wins}</td>
+                                    <td>{standing.leagueRecord.losses}</td>
+                                    <td>{standing.leagueRecord.ot}</td>
+                                    <td>{standing.points}</td>
+                                    <td>{standing.row}</td>
+
+                                </tr>
 
 
-                </Table>
+                            </tbody>)}
+
+
+                    </Table>
 
 
                 </React.Fragment>
-                        <div className="info">
-                        <p>p = President's Trophy</p>  <p>x = Clinched Playoff Spot</p>
+                <div className="info">
+                    <p>p = President's Trophy</p>
+                    <p>x = Clinched Playoff Spot</p>
+                    <p>z = Clinched Conference</p>
+                    <p>OT = Overtime/shootout Losses</p>
+                    <p>ROW = Regulation plus Overtime Wins</p>
 
-                        </div>
+                </div>
             </React.Fragment>
         )
     }

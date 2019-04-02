@@ -12,6 +12,7 @@ import CheckBox from "./checkbox";
 
 
 
+
 export default class Profile extends Component {
 
     render() {
@@ -28,7 +29,7 @@ export default class Profile extends Component {
 
 
                     <h1 className="profileHeader">My Tickets Listed/Sold</h1>
-                    <CardColumns>
+                    <CardColumns className="listingcard">
 
 
                         {
