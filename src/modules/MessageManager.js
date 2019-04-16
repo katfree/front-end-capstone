@@ -10,7 +10,8 @@ export default {
        return fetch(`${Settings.remoteURL}/privateMessages`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "headers": "headers"
             },
             body: JSON.stringify(obj)
         }).then(e => e.json())
@@ -20,7 +21,8 @@ export default {
         return fetch(`${Settings.remoteURL}/conversations`, {
              method: "POST",
              headers: {
-                 "Content-Type": "application/json"
+                 "Content-Type": "application/json",
+                 "headers": "headers"
              },
              body: JSON.stringify(obj)
          }).then(e => e.json())

@@ -29,7 +29,8 @@ export default {
         const e = await fetch(`${Settings.remoteURL}/ticketListings/${id}`, {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "headers": "headers"
             },
             body: JSON.stringify(editedListing)
         });
@@ -44,7 +45,8 @@ export default {
         fetch(`${Settings.remoteURL}/ticketListings/${id}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "headers": "headers"
             },
             body: JSON.stringify(obj)
 

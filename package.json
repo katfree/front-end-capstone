@@ -1,7 +1,8 @@
 {
-  "name": "Nutshell",
+  "name": "BreakawayTickets",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://breakaway-tickets.s3-website.us-east-1.amazonaws.com",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "moment": "^2.24.0",
@@ -15,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "aws s3 sync build/ s3://breakaway-tickets",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

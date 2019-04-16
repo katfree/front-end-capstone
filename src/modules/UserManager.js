@@ -16,7 +16,8 @@ export default {
     return fetch(`${Settings.remoteURL}/users`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "headers": "headers"
       },
       body: JSON.stringify(obj)
     }).then(data => data.json())
