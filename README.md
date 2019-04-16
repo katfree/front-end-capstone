@@ -11,7 +11,7 @@ Currently there is no easy, safe, and efficient way to directly buy and sell Nas
 6. Mark your Listing as Sold
 7. Delete your Listing
 
-For fun, the app also includes the full game schedule for the remaing Nashville Predators games. It also features the current Team Roster. Finally it includes the current standings in the NHL for division and conference with a key at the bottom for those who don't know what all the symbols mean. All of those are updated in real time from the NHL API.
+For fun, the app also includes the full game schedule for the remaining Nashville Predators games. It also features the current Team Roster. Finally it includes the current standings in the NHL for division and conference with a key at the bottom for those who don't know what all the symbols mean. All of those are updated in real time from the NHL API.
 
 
 ***Future Functionality:***
