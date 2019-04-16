@@ -44,6 +44,7 @@ For fun, the app also includes the full game schedule for the remaing Nashville 
 
 ***View Standings***
 ![Artwork Inventory](/src/images/standings1.png)
+
 ![Artwork Inventory](/src/images/standings2.png)
 
 ***View Game Schedule***
