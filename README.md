@@ -40,7 +40,7 @@ For fun, the app also includes the full game schedule for the remaing Nashville 
 ![Artwork Inventory](/src/images/newlisting.png)
 
 ***Edit Listing***
-![Artwork Inventory](/src/images/editlisting.png)
+![Artwork Inventory](/src/images/edit.png)
 
 ***View Standings***
 ![Artwork Inventory](/src/images/standings1.png)

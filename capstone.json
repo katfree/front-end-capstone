@@ -183,6 +183,18 @@
       "level": "Club",
       "sold": false,
       "id": 17
+    },
+    {
+      "userId": 4,
+      "listingHeader": "Two Tickets to Game 5",
+      "section": "305",
+      "price": "300",
+      "description": "Section 305 Row B seats 11&12. $300 for the pair.",
+      "dateofGame": "2019-04-20",
+      "opponent": "Dallas Stars",
+      "level": "Upper",
+      "sold": false,
+      "id": 18
     }
   ],
   "privateMessages": [
