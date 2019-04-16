@@ -1,4 +1,4 @@
-# Breakaway Tickets
+# Breakaway Tickets 🏒
 
 Currently there is no easy, safe, and efficient way to directly buy and sell Nashville Predators tickets without a middle man. All secondhand ticket selling sites have astronomical fees for both buyers and sellers these days. Breakaway tickets aims to solve that problem.
 
