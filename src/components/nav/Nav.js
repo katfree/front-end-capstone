@@ -1,17 +1,7 @@
 import React, { Component } from "react"
-
-import {
-
-  Navbar,
-
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Button
-} from 'reactstrap';
-
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button} from 'reactstrap';
 import "./nav.css"
+import { Link } from "react-router-dom"
 
 class NavBarComponent extends Component {
   logout = () => {
@@ -21,35 +11,36 @@ class NavBarComponent extends Component {
 
   render() {
     return (
-      <Navbar color="warning" dark sticky={'top'} expand="md" className="navbar">
-        <NavbarBrand href="/" className="navlogo">Breakaway Tickets</NavbarBrand>
-        <Nav className="ml-auto" navbar>
+      <Navbar color="warning" dark  className="mynavbar">
+        <NavbarBrand href="/" >Breakaway Tickets</NavbarBrand>
+        <Nav>
           <NavItem>
-            <NavLink href="/schedule" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Game Schedule</NavLink>
+            <NavLink href="/schedule" style={{ color: 'white', textDecoration: 'none' }}>Game Schedule</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/standings" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Standings</NavLink>
+            <NavLink href="/standings" style={{ color: 'white', textDecoration: 'none' }}>Standings</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/PredatorsRoster" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Team Roster</NavLink>
+            <NavLink href="/PredatorsRoster" style={{ color: 'white', textDecoration: 'none' }}>Team Roster</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/messages" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Messages</NavLink>
+            <NavLink href="/messages" style={{ color: 'white', textDecoration: 'none' }}>Messages</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/profile" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Profile</NavLink>
+            <NavLink href="/profile" style={{ color: 'white', textDecoration: 'none' }}>Profile</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/" className="navItems" style={{ color: 'white', textDecoration: 'none' }}>Ticket Listings</NavLink>
+            <NavLink href="/" style={{ color: 'white', textDecoration: 'none' }}>Ticket Listings</NavLink>
           </NavItem>
-          <Button
+          <Link to="/"><Button
             color="light"
             className=""
             onClick={this.logout}>
             Logout
-        </Button>
+        </Button></Link>
         </Nav>
       </Navbar>
+
     )
   }
 }

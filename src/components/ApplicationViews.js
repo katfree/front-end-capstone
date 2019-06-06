@@ -72,18 +72,20 @@ class ApplicationViews extends Component {
 
 
   componentDidMount() {
-    console.log("componentdidMount")
+
 
     const newState = {}
 
-    UserManager.getAll()
+    TicketListingsManager.getAll()
+    .then(ticketListings => newState.ticketListings = ticketListings)
+
+    .then(() => UserManager.getAll())
+
       .then(users => newState.users = users)
 
       .then(() => HockeyapiManager.getTeamRoster())
       .then(roster => newState.roster = roster)
 
-      .then(() => TicketListingsManager.getAll())
-      .then(ticketListings => newState.ticketListings = ticketListings)
 
       .then(() => HockeyapiManager.getAllGames())
       .then(gameSchedule => newState.gameSchedule = gameSchedule)
@@ -104,18 +106,15 @@ class ApplicationViews extends Component {
       .then((standings => newState.standings = standings))
 
 
-
-
-
-
-
-      .then(() => this.setState(newState))
+     .then(() => this.setState(newState))
+      console.log("componentdidMount")
 
   }
 
 
 
   render() {
+    console.log(this.state.ticketListings)
 
     return (
 

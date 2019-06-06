@@ -17,12 +17,12 @@ export default class TicketListingsPage extends Component {
         dateofGame: "",
     }
     handleFieldChange = evt => {
-        console.log(evt.target.value)
+        // console.log(evt.target.value)
         this.setState({ dateofGame: evt.target.value })
     }
 
     handleLevelFieldChange = evt => {
-        console.log(evt.target.value)
+        // console.log(evt.target.value)
         this.setState({ level: evt.target.value })
     }
 
@@ -35,11 +35,12 @@ export default class TicketListingsPage extends Component {
         this.setState({ toShow: false })
     }
     render() {
-        console.log(this.state.dateofGame)
+        // console.log(this.state.dateofGame)
+        console.log(this.props.ticketListings)
 
         const activeUserId = parseInt(sessionStorage.getItem("credentials"))
-        console.log(this.props.gameSchedule)
-        console.log(HockeyapiManager.getAllTeams())
+        // console.log(this.props.gameSchedule)
+        // console.log(HockeyapiManager.getAllTeams())
 
 
         return (
@@ -48,7 +49,7 @@ export default class TicketListingsPage extends Component {
                 <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>
                 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
                 {
-
+                    
                     this.state.toShow ?
 
 

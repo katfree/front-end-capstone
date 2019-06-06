@@ -15,6 +15,7 @@ export default class TicketCard extends Component {
 
     render() {
         const activeUserId = parseInt(sessionStorage.getItem("credentials"))
+        console.log(this.props.ticketListings)
         return (
             <React.Fragment>
                 <h1 className="listingHeader">All Listings</h1>

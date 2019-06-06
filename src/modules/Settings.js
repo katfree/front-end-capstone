@@ -1,3 +1,5 @@
 export default {
-    remoteURL: "http://localhost:3003"
+    remoteURL: "https://breakaway-api.herokuapp.com"
 }
+
+

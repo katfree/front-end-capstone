@@ -21,14 +21,14 @@ export default class SortTicketListings extends Component {
     render() {
         let Datesarray = this.props.gameSchedule.dates || []
 
-        console.log(Datesarray)
+        // console.log(Datesarray)
 
 
         let optionItems = Datesarray.filter(game => game.games[0].teams.home.team.name === "Nashville Predators" && game.date >= moment().format("YYYY-MM-DD")).flatMap(game =>
             <option value={game.date} key={game.date} >{game.date}</option>
         )
 
-        console.log(optionItems)
+        // console.log(optionItems)
         return (
             <React.Fragment>
                 {/* <Form> */}
