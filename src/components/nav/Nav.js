@@ -11,26 +11,41 @@ class NavBarComponent extends Component {
 
   render() {
     return (
-      <Navbar color="warning" dark  className="mynavbar">
-        <NavbarBrand href="/" >Breakaway Tickets</NavbarBrand>
+      <React.Fragment>
+      {/* <nav id="nav-wrap" className="">
+
+         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" className="nav">
+            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
+            <li><a className="smoothscroll" href="#about">About</a></li>
+	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
+            <li><a className="smoothscroll" href="#portfolio">Portfolio</a></li>
+
+         </ul>
+
+      </nav> */}
+      <Navbar  dark  className="mynavbar">
+        <NavbarBrand href="/" style={{ color: '#041E42'}}> Breakaway Tickets</NavbarBrand>
         <Nav>
           <NavItem>
-            <NavLink href="/schedule" style={{ color: 'white', textDecoration: 'none' }}>Game Schedule</NavLink>
+            <NavLink href="/schedule" style={{ color: '#041E42', textDecoration: 'none' }}>Game Schedule</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/standings" style={{ color: 'white', textDecoration: 'none' }}>Standings</NavLink>
+            <NavLink href="/standings" style={{ color: '#041E42', textDecoration: 'none' }}>Standings</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/PredatorsRoster" style={{ color: 'white', textDecoration: 'none' }}>Team Roster</NavLink>
+            <NavLink href="/PredatorsRoster" style={{ color: '#041E42', textDecoration: 'none' }}>Team Roster</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/messages" style={{ color: 'white', textDecoration: 'none' }}>Messages</NavLink>
+            <NavLink href="/messages" style={{ color: '#041E42', textDecoration: 'none' }}>Messages</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/profile" style={{ color: 'white', textDecoration: 'none' }}>Profile</NavLink>
+            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none' }}>Profile</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/" style={{ color: 'white', textDecoration: 'none' }}>Ticket Listings</NavLink>
+            <NavLink href="/" style={{ color: '#041E42', textDecoration: 'none' }}>Ticket Listings</NavLink>
           </NavItem>
           <Link to="/"><Button
             color="light"
@@ -40,7 +55,7 @@ class NavBarComponent extends Component {
         </Button></Link>
         </Nav>
       </Navbar>
-
+      </React.Fragment>
     )
   }
 }

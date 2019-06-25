@@ -1,7 +1,7 @@
 
 export default {
     getAllGames() {
-        return fetch("https://statsapi.web.nhl.com/api/v1/schedule?teamId=18&startDate=2019-03-01&endDate=2019-06-01")
+        return fetch("https://statsapi.web.nhl.com/api/v1/schedule?teamId=18&startDate=2019-09-01&endDate=2020-06-15")
         .then(e => e.json())
       },
       getAllTeams() {

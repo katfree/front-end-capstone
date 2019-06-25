@@ -48,12 +48,12 @@ export default class TicketListingsPage extends Component {
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
                 <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>
                 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
-                {
-                    
-                    this.state.toShow ?
+                {this.state.toShow ?
 
+                 (this.state.level === "" ?
+                            
+                            this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame  && listing.sold === false)).map(listing =>
 
-                        (this.state.level === "" ? this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.userId !== activeUserId && listing.sold === false)).map(listing =>
                             <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                 <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
@@ -64,9 +64,11 @@ export default class TicketListingsPage extends Component {
                                 <NewMessage {...this.props} listing={listing} />
 
 
-                            </Card>
-                        ) : (
-                                this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.userId !== activeUserId && listing.sold === false && listing.level === this.state.level)).map(listing =>
+                                    </Card>
+
+                        ) : ( <CardColumns>
+                            {
+                                this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.sold === false && listing.level === this.state.level)).map(listing =>
                                     <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                         <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
@@ -79,12 +81,15 @@ export default class TicketListingsPage extends Component {
 
                                     </Card>
                                 )
+                            }
+                        </CardColumns>
                             )
                         )
 
                         : <TicketCard {...this.props} ticketListings={this.props.ticketListings} />
 
                 }
+
 
 
 
