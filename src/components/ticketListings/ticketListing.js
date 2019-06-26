@@ -46,12 +46,18 @@ export default class TicketListingsPage extends Component {
         return (
             <React.Fragment>
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-                <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>
+
+
+                {this.state.toShow === true && <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>}
+
+
+
+
                 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
                 {this.state.toShow ?
 
                  (this.state.level === "" ?
-                            
+
                             this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame  && listing.sold === false)).map(listing =>
 
                             <Card key={listing.id} className="ticketListingCard shawdow ">

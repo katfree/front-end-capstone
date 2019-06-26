@@ -27,29 +27,29 @@ class NavBarComponent extends Component {
 
       </nav> */}
       <Navbar  dark  className="mynavbar">
-        <NavbarBrand href="/" style={{ color: '#041E42'}}> Breakaway Tickets</NavbarBrand>
+        <NavbarBrand href="/" style={{ color: '#041E42'}}> <strong>Breakaway Tickets</strong></NavbarBrand>
         <Nav>
           <NavItem>
-            <NavLink href="/schedule" style={{ color: '#041E42', textDecoration: 'none' }}>Game Schedule</NavLink>
+            <NavLink href="/schedule" style={{ color: '#041E42', textDecoration: 'none', borderRight: '1px solid #041E42',  }}>Game Schedule</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/standings" style={{ color: '#041E42', textDecoration: 'none' }}>Standings</NavLink>
+            <NavLink href="/standings" style={{ color: '#041E42', textDecoration: 'none', borderRight: '1px solid #041E42' }}>Standings</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/PredatorsRoster" style={{ color: '#041E42', textDecoration: 'none' }}>Team Roster</NavLink>
+            <NavLink href="/PredatorsRoster" style={{ color: '#041E42', textDecoration: 'none', borderRight: '1px solid #041E42' }}>Team Roster</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/messages" style={{ color: '#041E42', textDecoration: 'none' }}>Messages</NavLink>
+            <NavLink href="/messages" style={{ color: '#041E42', textDecoration: 'none', borderRight: '1px solid #041E42' }}>Messages</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none' }}>Profile</NavLink>
+            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none', borderRight: '1px solid #041E42' }}>Profile</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/" style={{ color: '#041E42', textDecoration: 'none' }}>Ticket Listings</NavLink>
           </NavItem>
           <Link to="/"><Button
             color="light"
-            className=""
+            className="Logoutbtn"
             onClick={this.logout}>
             Logout
         </Button></Link>
