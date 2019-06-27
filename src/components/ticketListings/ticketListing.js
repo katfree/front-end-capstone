@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
 import SortTicketListings from "./SortTicketListings";
-import { Button, Card, CardTitle, CardText,CardColumns } from 'reactstrap';
+import { Button, Card, CardTitle, CardText,CardColumns, Alert } from 'reactstrap';
 import "./ticketListing.css"
 import NewMessage from "../messages/CreateNewMessage";
 import HockeyapiManager from "../../modules/HockeyapiManager";
@@ -42,23 +42,25 @@ export default class TicketListingsPage extends Component {
         // console.log(this.props.gameSchedule)
         // console.log(HockeyapiManager.getAllTeams())
 
-
+        const dateFilter =  this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame  && listing.sold === false))
+        const dateANDlevelFilter =  this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.sold === false && listing.level === this.state.level))
         return (
             <React.Fragment>
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
 
 
-                {this.state.toShow === true && <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>}
+
 
 
 
 
                 <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
+                {this.state.toShow === true && <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>}
                 {this.state.toShow ?
 
-                 (this.state.level === "" ?
-
-                            this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame  && listing.sold === false)).map(listing =>
+                (this.state.level === "" ?
+                (dateFilter.length === 0 ? <div><Alert>There are no Tickets for this Date!</Alert></div> :(
+                dateFilter.map(listing =>
 
                             <Card key={listing.id} className="ticketListingCard shawdow ">
 
@@ -71,10 +73,13 @@ export default class TicketListingsPage extends Component {
 
 
                                     </Card>
+                      ))
 
-                        ) : ( <CardColumns>
+                        ):
+                        (dateANDlevelFilter.length === 0 ? <div><Alert>There are no Tickets for this Date and level!</Alert></div> :(
+                         <CardColumns>
                             {
-                                this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.sold === false && listing.level === this.state.level)).map(listing =>
+                                dateANDlevelFilter.map(listing =>
                                     <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                         <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
@@ -86,12 +91,15 @@ export default class TicketListingsPage extends Component {
 
 
                                     </Card>
+
                                 )
+
                             }
                         </CardColumns>
                             )
-                        )
 
+                        )
+                )
                         : <TicketCard {...this.props} ticketListings={this.props.ticketListings} />
 
                 }

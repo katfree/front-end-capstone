@@ -18,7 +18,7 @@ export default class TicketCard extends Component {
         //listing.userId !== activeUserId &&
         return (
             <React.Fragment>
-                <h1 className="listingHeader">All Listings</h1>
+                {/* <h1 className="listingHeader">All Listings</h1> */}
 
             <CardColumns className="listingcard">
 

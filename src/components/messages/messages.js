@@ -26,7 +26,7 @@ export default class Messages extends Component {
                         message =>
 
                             <div key={message.userId} className="linkcontainer">
-                                <Link className="messageLink" to={`/messages/${message.userId}`}>Go to Conversation With: {message.user.firstName}</Link>
+                                <Link className="messageLink" to={`/messages/${message.userId}`}>Go to Conversation With: {message.user.username}</Link>
                             </div>
                     )
 
