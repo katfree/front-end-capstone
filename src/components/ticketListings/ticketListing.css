@@ -7,6 +7,7 @@ body {
 .listingcard {
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 15px;
 }
 
 
@@ -15,6 +16,7 @@ body {
     justify-content: center;
     width: 400px;
    font-family: 'Exo 2', sans-serif;
+   padding-top: 5px;
 }
 
 

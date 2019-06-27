@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {
-    Card, CardTitle, CardText, CardColumns,
+    Card, CardTitle, CardText, CardColumns, Row
 
 } from 'reactstrap';
 import "./ticketListing.css"
@@ -19,7 +19,7 @@ export default class TicketCard extends Component {
         return (
             <React.Fragment>
                 {/* <h1 className="listingHeader">All Listings</h1> */}
-
+            <Row>
             <CardColumns className="listingcard">
 
 
@@ -46,6 +46,7 @@ export default class TicketCard extends Component {
 
 
             </CardColumns>
+            </Row>
             </React.Fragment>
         )
     }

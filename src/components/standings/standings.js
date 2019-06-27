@@ -37,7 +37,7 @@ export default class Standings extends Component {
 
                 <React.Fragment>
                     <h1 className="western" style={{ color: 'blue', textDecoration: 'none' }}>Western Conference</h1>
-                    <Table>
+                    <Table >
 
 
                         <thead>

@@ -70,15 +70,16 @@ export default class NewMessage extends Component {
                     <Label
                         id="basic-addon1"
                         htmlFor="message">
-                        Message
+                        Message Seller
                         </Label>
                     <Input type="text"
-                        placeholder="Message"
                         aria-describedby="basic-addon1"
                         required
-                        className="Form-control"
+                        className="Form-control messageModa"
                         onChange={this.handleFieldChange}
-                        id="message">
+                        id="message"
+
+                        >
                     </Input>
                     </FormGroup>
 
