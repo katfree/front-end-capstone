@@ -18,8 +18,6 @@ export default class TicketCard extends Component {
         //listing.userId !== activeUserId &&
         return (
             <React.Fragment>
-                {/* <h1 className="listingHeader">All Listings</h1> */}
-
             <div className="listingcard">
 
 
@@ -28,15 +26,14 @@ export default class TicketCard extends Component {
                         this.props.ticketListings.filter(listing => listing.sold === false && listing.dateofGame >= moment().format("YYYY-MM-DD")).map(listing =>
                             <div className="cardConatainer">
                             <Card key={listing.id} className="ticketListingCard">
-                                 <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
+                                 <CardTitle className="text-center"><strong>{listing.listingHeader}</strong></CardTitle>
                                  <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
                                 <CardBody>
 
-                                <CardText>Opponent: {listing.opponent}</CardText>
-                                <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
-                                <CardText>Section:{" "}{listing.section}{" "} Price:{" "} ${listing.price}</CardText>
-                                <CardText> Description: {listing.description}</CardText>
-                                {/* <NewMessage {...this.props} listing={listing}  /> */}
+                                <CardText><strong>Opponent:</strong> {listing.opponent}</CardText>
+                                <CardText><strong>Date of Game:</strong>{" "} {listing.dateofGame}</CardText>
+                                <CardText><strong>Section:</strong>{" "}{listing.section} <strong>  Price:</strong> {" "} ${listing.price}</CardText>
+                                <CardText><strong>Description: </strong>  {listing.description}</CardText>
                                 </CardBody>
                                 <CardFooter className="text-center"><NewMessage {...this.props} listing={listing}  /></CardFooter>
                             </Card>

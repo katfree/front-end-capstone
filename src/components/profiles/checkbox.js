@@ -43,7 +43,7 @@ export default class CheckBox extends Component {
 
                 :<form>
 
-                <label>Check When Sold</label>
+                <label>Check When Sold </label>
                 <input type="checkbox" onClick={ () => { if (window.confirm('Are you sure you want to mark this item as sold?')) this.handleInputChange()} } ></input>
                 </form>
             }

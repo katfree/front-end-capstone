@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import {
-    Card, Button, CardTitle, CardText, CardColumns,
+    Card, Button, CardTitle, CardText, CardBody, CardFooter, CardImg
 
 } from 'reactstrap';
 import EditListing from "./EditListing";
@@ -29,39 +29,39 @@ export default class Profile extends Component {
 
 
                     <h1 className="profileHeader">My Tickets Listed/Sold</h1>
-                    <CardColumns className="listingcard">
+                    <div className="listingcard">
 
 
                         {
                             this.props.ticketListings.filter(listing => listing.userId === activeUserId).map(listing =>
+                                <div className="cardConatainer">
                                 <Card key={listing.id} className="ticketListingCard shawdow ">
 
-                                    <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
-                                    <CardText>Opponent: {listing.opponent}</CardText>
-                                    <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
-                                    <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
-                                    <CardText> Description: {listing.description}</CardText>
+                                    <CardTitle className="listingHeader"><strong>{listing.listingHeader}</strong></CardTitle>
+                                    <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                    <CardBody>
+                                    <CardText><strong>Opponent:</strong> {listing.opponent}</CardText>
+                                    <CardText><strong>Date of Game:</strong>{" "} {listing.dateofGame}</CardText>
+                                    <CardText><strong>Section:</strong>{" "}{listing.section} <strong>  Price:</strong> {" "} ${listing.price}</CardText>
+                                    <CardText><strong>Description: </strong>  {listing.description}</CardText>
 
                                     <CheckBox  {...this.props} listing={listing} />
-
+                                    </CardBody>
+                                    <CardFooter className="text-center">
                                     <EditListing {...this.props} CloseModal={this.onCloseModal} EditListing={this.props.EditListing} listing={listing} />
 
-
-
-
-
                                     <Button color="danger" onClick={() => this.props.DeleteListing(listing.id)} >Delete</Button>
-
+                                    </CardFooter>
 
 
                                 </Card>
-
+                                </div>
 
                             )
                         }
 
 
-                    </CardColumns>
+                    </div>
 
 
 
