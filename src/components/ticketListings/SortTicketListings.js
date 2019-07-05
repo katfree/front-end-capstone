@@ -51,7 +51,7 @@ export default class SortTicketListings extends Component {
 
 
                         </select>
-
+                    { this.props.toShow === true &&
                         <select
                             name="level"
                             id="level"
@@ -63,7 +63,7 @@ export default class SortTicketListings extends Component {
 
 
                         </select>
-
+                    }
                         {/* </FormGroup> */}
 
                         <Button type="submit" className="listingpagebutton" onClick={this.filterBylevel}>Search</Button>

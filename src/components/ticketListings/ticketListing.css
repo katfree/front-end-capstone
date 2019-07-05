@@ -8,6 +8,14 @@ body {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 15px;
+    display: flex;
+    /* flex-direction: row; */
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+
+
 }
 
 .card-columns {
@@ -19,6 +27,54 @@ body {
    padding-top: 5px;
   border:  2px solid rgba(0, 0, 0, 0.308) !important;
   border-radius: 15px !important;
+
+
+}
+
+.cardConatainer{
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .ticketListingCard {
+        width: 280px !important;
+    }
+    .card-columns {
+        column-count: 3 !important;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .ticketListingCard {
+        width: 260px !important;
+    }
+    .card-columns {
+        column-count: 3 !important;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    .ticketListingCard {
+        width: 230px !important;
+    }
+    .card-columns {
+        column-count: 3 !important;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 835px) {
+    .ticketListingCard {
+        width: 330px !important;
+    }
+    .card-columns {
+        column-count: 2 !important;
+    }
 }
 
 
@@ -42,7 +98,7 @@ body {
 
 @media only screen and (max-width: 580px) {
     .ticketListingCard {
-        width: 400px !important;
+        width: 300px !important;
     }
     .card-columns {
         column-count: 1 !important;

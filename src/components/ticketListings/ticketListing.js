@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
 import SortTicketListings from "./SortTicketListings";
-import { Button, Card, CardTitle, CardText,CardColumns, Alert, Row} from 'reactstrap';
+import { Button, Card, CardTitle, CardText,CardColumns, Alert, CardBody, CardFooter, CardImg} from 'reactstrap';
 import "./ticketListing.css"
 import NewMessage from "../messages/CreateNewMessage";
 
@@ -45,7 +45,7 @@ export default class TicketListingsPage extends Component {
         return (
             <React.Fragment>
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-                <SortTicketListings  {...this.props} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
+                <SortTicketListings  {...this.props} toShow={this.state.toShow} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
 
 
                 {this.state.toShow === true && <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>}
@@ -54,48 +54,53 @@ export default class TicketListingsPage extends Component {
 
                 (this.state.level === "" ?
                 (dateFilter.length === 0 ? <div><Alert>There are no Tickets for this Date!</Alert></div> :(
-                    <Row className="listingcard">
-                    <CardColumns className="listingcard" >
+                    <div className="listingcard">
+
                     {
                     dateFilter.map(listing =>
+                        <div className="cardConatainer">
+                            <Card key={listing.id} className="ticketListingCard">
+                                 <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
+                                 <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                <CardBody>
 
-                            <Card key={listing.id} className="ticketListingCard shawdow ">
-                                 <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
                                 <CardText>Opponent: {listing.opponent}</CardText>
                                 <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
-                                <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
+                                <CardText>Section:{" "}{listing.section}{" "} Price:{" "} ${listing.price}</CardText>
                                 <CardText> Description: {listing.description}</CardText>
-                                <NewMessage {...this.props} listing={listing} />
-
-
-                                    </Card>
-
+                                </CardBody>
+                                <CardFooter className="text-center"><NewMessage {...this.props} listing={listing}  /></CardFooter>
+                            </Card>
+                                    </div>
                       ) }
-                      </CardColumns>
-                      </Row>
+
+                      </div>
                       )
 
                         ):
                         (dateANDlevelFilter.length === 0 ? <div><Alert>There are no Tickets for this Date and level!</Alert></div> :(
-                         <CardColumns className="listingcard">
+                            <div className="listingcard">
                             {
                                 dateANDlevelFilter.map(listing =>
-                                    <Card key={listing.id} className="ticketListingCard shawdow ">
+                                    <div className="cardConatainer">
+                            <Card key={listing.id} className="ticketListingCard">
+                                 <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
+                                 <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                <CardBody>
 
-                                        <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
-                                        <CardText>Opponent: {listing.opponent}</CardText>
-                                        <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
-                                        <CardText>Section:{" "}{listing.section}{" "}Price:{" "} ${listing.price}</CardText>
-                                        <CardText> Description: {listing.description}</CardText>
-                                        <NewMessage {...this.props} listing={listing} />
-
-
-                                    </Card>
+                                <CardText>Opponent: {listing.opponent}</CardText>
+                                <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
+                                <CardText>Section:{" "}{listing.section}{" "} Price:{" "} ${listing.price}</CardText>
+                                <CardText> Description: {listing.description}</CardText>
+                                </CardBody>
+                                <CardFooter className="text-center"><NewMessage {...this.props} listing={listing}  /></CardFooter>
+                            </Card>
+                                    </div>
 
                                 )
 
                             }
-                        </CardColumns>
+                        </div>
                             )
 
                         )

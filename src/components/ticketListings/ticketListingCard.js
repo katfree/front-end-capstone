@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {
-  Col,  Card, CardTitle, CardText, CardColumns, Row, CardBody, CardFooter, CardImg, Container
+  Col,  Card, CardTitle, CardText, div, Row, CardBody, CardFooter, CardImg, Container
 
 } from 'reactstrap';
 import "./ticketListing.css"
@@ -20,12 +20,13 @@ export default class TicketCard extends Component {
             <React.Fragment>
                 {/* <h1 className="listingHeader">All Listings</h1> */}
 
-            <CardColumns className="listingcard">
+            <div className="listingcard">
 
 
 
                     {
                         this.props.ticketListings.filter(listing => listing.sold === false && listing.dateofGame >= moment().format("YYYY-MM-DD")).map(listing =>
+                            <div className="cardConatainer">
                             <Card key={listing.id} className="ticketListingCard">
                                  <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
                                  <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
@@ -39,6 +40,7 @@ export default class TicketCard extends Component {
                                 </CardBody>
                                 <CardFooter className="text-center"><NewMessage {...this.props} listing={listing}  /></CardFooter>
                             </Card>
+                            </div>
 
 
                         )
@@ -47,7 +49,7 @@ export default class TicketCard extends Component {
                     }
 
 
-            </CardColumns>
+            </div>
 
             </React.Fragment>
         )
