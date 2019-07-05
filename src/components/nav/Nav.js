@@ -1,32 +1,87 @@
 import React, { Component } from "react"
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button} from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button, Collapse, NavbarToggler,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem} from 'reactstrap';
 import "./nav.css"
 import { Link } from "react-router-dom"
 
 class NavBarComponent extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   logout = () => {
     sessionStorage.clear("credentials")
     this.props.setAuth()
   }
 
+
   render() {
     return (
       <React.Fragment>
-      {/* <nav id="nav-wrap" className="">
+        <div>
+        <Navbar className="mynavbar" light expand="lg">
+        <NavbarBrand href="/" style={{ color: '#041E42'}}> <strong>Breakaway Tickets</strong></NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar style={{ color: '#041E42', textDecoration: 'none' }}>
+            <Nav className="ml-auto" navbar>
+            <NavItem>
+            <NavLink href="/messages" style={{ color: '#041E42', textDecoration: 'none' }}>Messages</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none' }}>Profile</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/" style={{ color: '#041E42', textDecoration: 'none' }}>Ticket Listings</NavLink>
+          </NavItem>
 
-         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret style={{ color: '#041E42', textDecoration: 'none'  }}>
+                  Preds Info!
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                   <NavItem>
+                    <NavLink href="/schedule" style={{ color: '#041E42', textDecoration: 'none'  }}>Game Schedule</NavLink>
+                  </NavItem>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavItem>
+                     <NavLink href="/standings" style={{ color: '#041E42', textDecoration: 'none' }}>Standings</NavLink>
+                   </NavItem>
+                  </DropdownItem>
+                  <DropdownItem>
+                   <NavItem>
+                    <NavLink href="/PredatorsRoster" style={{ color: '#041E42', textDecoration: 'none' }}>Team Roster</NavLink>
+                   </NavItem>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+            <Link to="/"><Button
+            color="light"
+            className="Logoutbtn"
+            onClick={this.logout}>
+            Logout
+        </Button></Link>
+          </Collapse>
 
-         <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Portfolio</a></li>
-
-         </ul>
-
-      </nav> */}
-      <Navbar  dark  className="mynavbar">
+        </Navbar>
+      </div>
+      {/* <Navbar  dark  className="mynavbar" expand="md">
         <NavbarBrand href="/" style={{ color: '#041E42'}}> <strong>Breakaway Tickets</strong></NavbarBrand>
         <Nav>
           <NavItem>
@@ -54,7 +109,7 @@ class NavBarComponent extends Component {
             Logout
         </Button></Link>
         </Nav>
-      </Navbar>
+      </Navbar> */}
       </React.Fragment>
     )
   }

@@ -1,13 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Exo+2:200");
+@import url("https://fonts.googleapis.com/css?family=Rubik");
 
 
 
 
-.Navbar {
-  border: 5px solid #041E42;
-}
 .navlogo {
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Rubik', sans-serif;
   font-size: 60rem;
 }
 
@@ -18,16 +15,18 @@
 
 
 .mynavbar{
-  border: 10px solid #041E42;
   padding-bottom: 10px;
-  z-index: 0;
+  /* z-index: 0; */
   background-color: #FCB514;
 
 
 }
 
-
-@media (min-width:992px) {
+.navbar-toggler{
+  color: #041E42 !important;
+  border-color: #041E42 !important;
+}
+/* @media (min-width:992px) {
   .mynavbar {
       padding-top: 25px;
       padding-bottom: 25px;
@@ -35,7 +34,7 @@
       transition: padding-top .3s, padding-bottom .3s;
       border: none;
       /*background-color: transparent*/
-  }
+  /* }
 
   .mynavbar .navlogo  {
           font-size: 1.75em;
@@ -57,7 +56,7 @@
               font-size: 1.25em;
               padding: 12px 0
           }
-}
+} */
 
 
 .nav-item:hover{
