@@ -63,7 +63,7 @@ export default class NewMessage extends Component {
         console.log(sessionStorage.getItem("credentials"))
         return (
             <React.Fragment>
-            <Button color="info" onClick={this.onOpenModal}>Message Seller: {this.props.listing.user.username} </Button>
+            <Button className="messageSellerBtn" onClick={this.onOpenModal}>Message Seller: {this.props.listing.user.username} </Button>
             <Modal open={open} onClose={this.onCloseModal} center>
             <Form>
                 <FormGroup>

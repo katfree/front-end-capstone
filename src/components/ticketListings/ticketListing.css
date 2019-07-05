@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik");
 
 body {
-   font-family: 'Exo 2', sans-serif;
+   /* font-family: 'Exo 2', sans-serif; */
 }
 
 .listingcard {
@@ -10,29 +10,142 @@ body {
     padding-top: 15px;
 }
 
+.card-columns {
+    column-count: 3 !important;
+}
 
 .ticketListingCard{
-    display: flex;
-    justify-content: center;
-    width: 400px;
-   font-family: 'Exo 2', sans-serif;
+    width: 400px ;
    padding-top: 5px;
+  border:  2px solid rgba(0, 0, 0, 0.308) !important;
+  border-radius: 15px !important;
 }
 
 
-
-@media only screen and (max-width: 567px) {
+@media only screen and (max-width: 750px) {
     .ticketListingCard {
-        width: 300px;
+        width: 300px !important;
+    }
+    .card-columns {
+        column-count: 2 !important;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .ticketListingCard {
+        width: 250px !important;
+    }
+    .card-columns {
+        column-count: 2 !important;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .ticketListingCard {
+        width: 400px !important;
+    }
+    .card-columns {
+        column-count: 1 !important;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .ticketListingCard {
+        width: 360px !important;
         display: flex;
-    justify-content: center;
+        justify-content: center;
     }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 427px) {
     .ticketListingCard {
-        width: 200px;
+        width: 320px !important;
+        display: flex;
+        justify-content: center;
     }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 375px) {
+    .ticketListingCard {
+        width: 300px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 358px) {
+    .ticketListingCard {
+        width: 280px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 345px) {
+    .ticketListingCard {
+        width: 250px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 315px) {
+    .ticketListingCard {
+        width: 230px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 294px) {
+    .ticketListingCard {
+        width: 210px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-columns {
+        column-count: 1 !important;
+    }
+
+
 }
 
 
@@ -44,13 +157,13 @@ body {
    font-family: 'Exo 2', sans-serif;
 }
 
-.listingHeader{
+/* .listingHeader{
 
     display: flex;
     justify-content: center;
    font-family: 'Exo 2', sans-serif;
    font-weight: bolder;
-}
+} */
 
 .profileHeader{
     display: flex;
@@ -77,3 +190,8 @@ button {
     transform: translateY(-44px);
 
 }
+
+.listingpagebutton{
+    background-color: #041E42 !important;
+}
+

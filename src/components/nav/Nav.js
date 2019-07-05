@@ -33,7 +33,7 @@ class NavBarComponent extends Component {
     return (
       <React.Fragment>
         <div>
-        <Navbar className="mynavbar" light expand="lg">
+        <Navbar className="mynavbar" light sticky expand="lg">
         <NavbarBrand href="/" style={{ color: '#041E42'}}> <strong>Breakaway Tickets</strong></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar style={{ color: '#041E42', textDecoration: 'none' }}>
@@ -42,10 +42,10 @@ class NavBarComponent extends Component {
             <NavLink href="/messages" style={{ color: '#041E42', textDecoration: 'none' }}>Messages</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none' }}>Profile</NavLink>
+            <NavLink href="/profile" style={{ color: '#041E42', textDecoration: 'none'}}>Profile</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/" style={{ color: '#041E42', textDecoration: 'none' }}>Ticket Listings</NavLink>
+            <NavLink href="/" style={{ color: '#041E42', textDecoration: 'none' }}>Ticket Listings </NavLink>
           </NavItem>
 
               <UncontrolledDropdown nav inNavbar>
@@ -72,7 +72,7 @@ class NavBarComponent extends Component {
               </UncontrolledDropdown>
             </Nav>
             <Link to="/"><Button
-            color="light"
+
             className="Logoutbtn"
             onClick={this.logout}>
             Logout

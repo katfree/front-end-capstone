@@ -37,7 +37,7 @@ export default class SortTicketListings extends Component {
                         <Label className="input-group-addon basic-addon1"
                             id="basic-addon1"
                             htmlFor="sortby">
-                            Search By...
+                            <strong>Search By... </strong>
 
                         </Label>
 

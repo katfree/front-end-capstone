@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {
-    Card, CardTitle, CardText, CardColumns, Row
+  Col,  Card, CardTitle, CardText, CardColumns, Row, CardBody, CardFooter, CardImg, Container
 
 } from 'reactstrap';
 import "./ticketListing.css"
@@ -19,23 +19,25 @@ export default class TicketCard extends Component {
         return (
             <React.Fragment>
                 {/* <h1 className="listingHeader">All Listings</h1> */}
-            <Row>
+
             <CardColumns className="listingcard">
 
 
 
                     {
                         this.props.ticketListings.filter(listing => listing.sold === false && listing.dateofGame >= moment().format("YYYY-MM-DD")).map(listing =>
-                            <Card key={listing.id} className="ticketListingCard shawdow ">
+                            <Card key={listing.id} className="ticketListingCard">
+                                 <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
+                                 <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                <CardBody>
 
-                                <CardTitle className="listingHeader">{listing.listingHeader}</CardTitle>
                                 <CardText>Opponent: {listing.opponent}</CardText>
                                 <CardText>Date of Game:{" "} {listing.dateofGame}</CardText>
                                 <CardText>Section:{" "}{listing.section}{" "} Price:{" "} ${listing.price}</CardText>
                                 <CardText> Description: {listing.description}</CardText>
-                                <NewMessage {...this.props} listing={listing}  />
-
-
+                                {/* <NewMessage {...this.props} listing={listing}  /> */}
+                                </CardBody>
+                                <CardFooter className="text-center"><NewMessage {...this.props} listing={listing}  /></CardFooter>
                             </Card>
 
 
@@ -46,7 +48,7 @@ export default class TicketCard extends Component {
 
 
             </CardColumns>
-            </Row>
+
             </React.Fragment>
         )
     }

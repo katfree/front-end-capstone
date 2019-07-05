@@ -2,10 +2,9 @@ import React, { Component } from "react"
 import CreateNewTicketListing from "./CreateNewTicketListing";
 import TicketCard from "./ticketListingCard";
 import SortTicketListings from "./SortTicketListings";
-import { Button, Card, CardTitle, CardText,CardColumns, Alert, CardHeader, Row} from 'reactstrap';
+import { Button, Card, CardTitle, CardText,CardColumns, Alert, Row} from 'reactstrap';
 import "./ticketListing.css"
 import NewMessage from "../messages/CreateNewMessage";
-import HockeyapiManager from "../../modules/HockeyapiManager";
 
 
 
@@ -55,8 +54,8 @@ export default class TicketListingsPage extends Component {
 
                 (this.state.level === "" ?
                 (dateFilter.length === 0 ? <div><Alert>There are no Tickets for this Date!</Alert></div> :(
-                    <Row>
-                    <CardColumns className="listingcard">
+                    <Row className="listingcard">
+                    <CardColumns className="listingcard" >
                     {
                     dateFilter.map(listing =>
 

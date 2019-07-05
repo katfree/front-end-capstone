@@ -26,37 +26,7 @@
   color: #041E42 !important;
   border-color: #041E42 !important;
 }
-/* @media (min-width:992px) {
-  .mynavbar {
-      padding-top: 25px;
-      padding-bottom: 25px;
-      -webkit-transition: padding-top .3s, padding-bottom .3s;
-      transition: padding-top .3s, padding-bottom .3s;
-      border: none;
-      /*background-color: transparent*/
-  /* }
 
-  .mynavbar .navlogo  {
-          font-size: 1.75em;
-          -webkit-transition: all .3s;
-          transition: all .3s
-      }
-
-      .mynavbar .navbar-nav .nav-item .nav-link {
-          padding: 1.1em 1em !important
-      }
-
-      .mynavbar.navbar-shrink {
-          padding-top: 0;
-          padding-bottom: 0;
-          background-color: #212529
-      }
-
-      .mynavbar.navbar-shrink .navbar-brand {
-              font-size: 1.25em;
-              padding: 12px 0
-          }
-} */
 
 
 .nav-item:hover{
@@ -64,5 +34,5 @@
 }
 
 .Logoutbtn{
-  border: 1px solid #041E42;
+  background-color: #041E42 !important;
 }
