@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import {
-  Col,  Card, CardTitle, CardText, div, Row, CardBody, CardFooter, CardImg, Container
+import { Card, CardTitle, CardText,  CardBody, CardFooter, CardImg
 
 } from 'reactstrap';
 import "./ticketListing.css"
@@ -13,7 +12,7 @@ export default class TicketCard extends Component {
 
 
     render() {
-        const activeUserId = parseInt(sessionStorage.getItem("credentials"))
+        // const activeUserId = parseInt(sessionStorage.getItem("credentials"))
         console.log(this.props.ticketListings)
         //listing.userId !== activeUserId &&
         return (

@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Rubik");
+/* @import url("https://fonts.googleapis.com/css?family=Rubik"); */
 
 
 
 .messageLink:link, .messageLink:visited {
-    background-color: #3248c5;
+    background-color: rgb(47, 54, 148);
     color: white;
     padding: 30px 100px;
     text-align: center; 
@@ -12,6 +12,7 @@
     font-family: 'Exo 2', sans-serif;
     border-radius: 20px;
     margin: 20px;
+
 
 
   }
@@ -44,22 +45,97 @@
       justify-content: space-around;
       font-family: 'Exo 2', sans-serif;
   }
+  html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
 
   .privatemessage{
     font-family: 'Exo 2', sans-serif;
+    padding: 20px;
+    height:500px;
+    overflow: auto;
+
+
+  }
+
+  @media screen and (max-height: 600px){
+    .privatemessage{
+      height:350px;
+      overflow: auto;
+    }
+  }
+
+  @media screen and (max-height: 550px){
+    .privatemessage{
+      height:300px;
+      overflow: auto;
+    }
+  }
+
+  @media screen and (max-height: 500px){
+    .privatemessage{
+      height:250px;
+      overflow: auto;
+    }
+  }
+
+  .messagestext{
+    overflow: auto;
+  height:100%;
+
+  }
+
+  .replyToCurrentConversation{
+    position: absolute;
+    bottom:0px;
+    width:100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 
   .messages{
       display: flex;
       /* justify-content: center; */
+      position:relative;
   }
 
   .messageCard {
     margin: 20px;
 
-
   }
 
   .messageSellerBtn{
     background-color: #041E42 !important;
+  }
+
+
+  .replytoNewMsgBtn{
+    background-color: #041E42 !important;
+  }
+
+
+  .repltToMsgInput{
+    width: 80%;
+  }
+
+  .newMsgBox{
+    width: 500px;
+  }
+
+  @media screen and (max-width: 590px){
+    .newMsgBox{
+      width: 400px;
+    }
+  }
+
+  @media screen and (max-width: 490px){
+    .newMsgBox{
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 390px){
+    .newMsgBox{
+      width: 200px;
+    }
   }

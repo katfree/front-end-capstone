@@ -29,11 +29,8 @@ export default class SortTicketListings extends Component {
         )
 
         // console.log(optionItems)
-        return (
-            <React.Fragment>
-                {/* <Form> */}
-
-                    {/* <FormGroup> */}
+        return ( 
+            <React.Fragment >
                         <Label className="input-group-addon basic-addon1"
                             id="basic-addon1"
                             htmlFor="sortby">
@@ -51,6 +48,7 @@ export default class SortTicketListings extends Component {
 
 
                         </select>
+
                     { this.props.toShow === true &&
                         <select
                             name="level"
@@ -63,13 +61,14 @@ export default class SortTicketListings extends Component {
 
 
                         </select>
+
                     }
-                        {/* </FormGroup> */}
+
 
                         <Button type="submit" className="listingpagebutton" onClick={this.filterBylevel}>Search</Button>
 
 
-                    {/* </Form> */}
+
 
 
             </React.Fragment>

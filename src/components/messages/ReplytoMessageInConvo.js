@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input, } from 'reactstrap';
 import moment from 'moment'
 
 
@@ -52,15 +52,15 @@ export default class ReplyToMessage extends Component {
                         placeholder="Message"
                         aria-describedby="basic-addon1"
                         required
-                        className="Form-control"
+                        className="Form-control repltToMsgInput "
                         onChange={this.handleFieldChange}
                         id="message">
                     </Input>
-                    </FormGroup>
+                </FormGroup>
 
 
 
-                    <Button color="warning" type="submit"
+                    <Button className="replytoNewMsgBtn" type="submit"
                     onClick={this.SendNewMessage} >Send Message</Button>
 
              </Form>

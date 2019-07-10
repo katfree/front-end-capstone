@@ -44,9 +44,12 @@ export default class TicketListingsPage extends Component {
         const dateANDlevelFilter =  this.props.ticketListings.filter(listing => (listing.dateofGame === this.state.dateofGame && listing.sold === false && listing.level === this.state.level))
         return (
             <React.Fragment>
+                  
                 <CreateNewTicketListing {...this.props} AddNewTicketListing={this.props.AddNewTicketListing} />
-                <SortTicketListings  {...this.props} toShow={this.state.toShow} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
 
+                <div className="sortdiv">
+                <SortTicketListings  {...this.props} toShow={this.state.toShow} toShowState={this.toShowState} handleLevelFieldChange={this.handleLevelFieldChange} handleFieldChange={this.handleFieldChange} ticketListings={this.props.ticketListings} />
+                </div>
 
                 {this.state.toShow === true && <Button className="listingpagebutton" onClick={this.toShowStateFalse}>Show All Listings</Button>}
 

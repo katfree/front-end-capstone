@@ -64,8 +64,9 @@ export default class NewMessage extends Component {
         return (
             <React.Fragment>
             <Button className="messageSellerBtn" onClick={this.onOpenModal}>Message Seller: {this.props.listing.user.username} </Button>
-            <Modal open={open} onClose={this.onCloseModal} center>
-            <Form>
+
+            <Modal open={open} onClose={this.onCloseModal} center >
+            <Form className="newMsgBox">
                 <FormGroup>
                     <Label
                         id="basic-addon1"
@@ -75,7 +76,7 @@ export default class NewMessage extends Component {
                     <Input type="text"
                         aria-describedby="basic-addon1"
                         required
-                        className="Form-control messageModa"
+                        className="Form-control repltToMsgInput"
                         onChange={this.handleFieldChange}
                         id="message"
 
@@ -85,7 +86,7 @@ export default class NewMessage extends Component {
 
 
 
-                    <Button color="warning" type="submit"
+                    <Button className="replytoNewMsgBtn" type="submit"
                     onClick={this.SendNewMessage} >Send Message</Button>
 
              </Form>

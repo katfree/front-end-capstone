@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Rubiks");
-
+/* @import url("https://fonts.googleapis.com/css?family=Rubiks");
+ */
 
 body {
    font-family: 'Exo 2', sans-serif;
@@ -20,20 +20,71 @@ body {
     display: flex;
     justify-content: center;
     width: 400px;
-   font-family: 'Rubik', sans-serif;
+   font-family: 'Exo 2', sans-serif;
+
+}
+@media only screen and (max-width: 470px) {
+    .schedule {
+        width: 360px !important;
+
+    }
 
 }
 
-@media (min-width: 50px){
-    .schedule{
-        width: 250px;
+@media only screen and (max-width: 427px) {
+    .schedule {
+        width: 320px !important;
+
     }
+
+
+}
+
+@media only screen and (max-width: 375px) {
+    .schedule {
+        width: 300px !important;
+
+    }
+
+}
+
+
+@media only screen and (max-width: 358px) {
+    .schedule {
+        width: 280px !important;
+    }
+
+}
+
+@media only screen and (max-width: 345px) {
+    .schedule {
+        width: 250px !important;
+    }
+
+
+
+}
+
+@media only screen and (max-width: 315px) {
+    .schedule {
+        width: 230px !important;
+    }
+
+}
+
+@media only screen and (max-width: 294px) {
+    .schedule {
+        width: 210px !important;
+    }
+
+
+
 }
 .listingHeader{
 
     display: flex;
     justify-content: center;
-   font-family: 'Rubik', sans-serif;
+   font-family: 'Exo 2', sans-serif;
    font-weight: bolder;
 }
 

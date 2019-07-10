@@ -33,7 +33,7 @@ class NavBarComponent extends Component {
     return (
       <React.Fragment>
         <div>
-        <Navbar className="mynavbar" light sticky expand="lg">
+        <Navbar className="mynavbar" light  expand="lg">
         <NavbarBrand href="/" style={{ color: '#041E42'}}> <strong>Breakaway Tickets</strong></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar style={{ color: '#041E42', textDecoration: 'none' }}>

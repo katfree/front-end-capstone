@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Rubik");
+/* @import url("https://fonts.googleapis.com/css?family=Rubik");
 
 body {
-   /* font-family: 'Exo 2', sans-serif; */
-}
+   /* font-family: 'Rubik', sans-serif; */
+/* } */
 
 .listingcard {
     padding-left: 30px;
@@ -217,7 +217,7 @@ body {
 
     display: flex;
     justify-content: center;
-   font-family: 'Exo 2', sans-serif;
+   font-family: 'Rubik', sans-serif;
    font-weight: bolder;
 } */
 
@@ -243,11 +243,16 @@ button {
 .sortdiv {
     display: flex;
     justify-content: center;
-    transform: translateY(-44px);
+    /* transform: translateY(-44px); */
+    padding: 20px;
+    align-items: center;
 
 }
 
+
 .listingpagebutton{
     background-color: #041E42 !important;
+    display: flex;
+    justify-content: center;
 }
 
