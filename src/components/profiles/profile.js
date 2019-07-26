@@ -38,7 +38,7 @@ export default class Profile extends Component {
                                 <Card key={listing.id} className="ticketListingCard shawdow ">
 
                                     <CardTitle className="listingHeader"><strong>{listing.listingHeader}</strong></CardTitle>
-                                    <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                    <CardImg top width="100%" src={listing.listingphotoURL} alt="Card image cap" />
                                     <CardBody>
                                     <CardText><strong>Opponent:</strong> {listing.opponent}</CardText>
                                     <CardText><strong>Date of Game:</strong>{" "} {listing.dateofGame}</CardText>
