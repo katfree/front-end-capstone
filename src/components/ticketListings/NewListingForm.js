@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import "./ticketListing.css"
 import moment from "moment"
-
+import { storage } from "../firebase/Firebase"
 
 export default class NewListingForm extends Component {
 
@@ -17,7 +17,10 @@ export default class NewListingForm extends Component {
         dateofGame: "",
         opponent: "",
         sold: "",
-        level: ""
+        level: "",
+        listingphotoURL: "",
+        loadMin: "",
+        loadMax: ""
     }
 
 
@@ -25,6 +28,42 @@ export default class NewListingForm extends Component {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
+    }
+
+    handlePhoto = event => {
+        if (event.target.files[0]) {
+            const image = event.target.files[0]
+            this.setState({
+                imagefile: image})
+            console.log(image)
+        }
+    }
+
+    handleUpload = () => {
+
+        const image = this.state.imagefile
+        console.log(image)
+        const uploadTask = storage.ref(`images/${image.name}`).put(image)
+        uploadTask.on("state_changed",
+        () => {
+            storage.ref('images').child(image.name).getDownloadURL().then( listingphotoURL => {
+
+                this.setState({ listingphotoURL })
+            })
+            console.log(this.state.listingphotoURL, "AHHH")
+        },
+            (snapshot) => {
+                this.setState({
+                    loadMin: snapshot.bytesTransferred,
+                    loadMax: snapshot.totalBytes
+                })
+            },
+
+
+
+        )
+
+
     }
 
     createNewListing = evt => {
@@ -39,7 +78,8 @@ export default class NewListingForm extends Component {
             dateofGame: this.state.dateofGame,
             opponent: this.state.opponent,
             level: this.state.level,
-            sold: false
+            sold: false,
+            listingphotoURL: this.state.listingphotoURL
 
         }
 
@@ -293,6 +333,13 @@ export default class NewListingForm extends Component {
                         onChange={this.handleFieldChange}
                         id="description">
                     </Input>
+                </FormGroup>
+                <FormGroup>
+                <Input type="file" onChange={this.handlePhoto} id="photoLink" />
+                <div>
+                <progress value={this.state.loadMin} max={this.state.loadMax}></progress>
+                    <Button className="btn btn-primary saveImage" type="button" onClick={() => this.handleUpload()}>Upload</Button>
+                </div>
                 </FormGroup>
 
                 <Button color="success" type="submit"

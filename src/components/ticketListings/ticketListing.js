@@ -64,7 +64,7 @@ export default class TicketListingsPage extends Component {
                         <div className="cardConatainer">
                             <Card key={listing.id} className="ticketListingCard">
                                  <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
-                                 <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                 <CardImg top width="100%" src={listing.listingphotoURL} alt="Card image cap" />
                                 <CardBody>
 
                                 <CardText>Opponent: {listing.opponent}</CardText>
@@ -88,7 +88,7 @@ export default class TicketListingsPage extends Component {
                                     <div className="cardConatainer">
                             <Card key={listing.id} className="ticketListingCard">
                                  <CardTitle className="text-center">{listing.listingHeader}</CardTitle>
-                                 <CardImg top width="100%" src="https://via.placeholder.com/220x120" alt="Card image cap" />
+                                 <CardImg top width="100%" src={listing.listingphotoURL} alt="Card image cap" />
                                 <CardBody>
 
                                 <CardText>Opponent: {listing.opponent}</CardText>
